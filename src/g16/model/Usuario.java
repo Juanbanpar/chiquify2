@@ -17,8 +17,6 @@ public class Usuario implements Serializable {
 	@Id
 	private String email;
 
-	private String apellido;
-
 	private String apellido1;
 
 	private String apellido2;
@@ -28,9 +26,7 @@ public class Usuario implements Serializable {
 	private String nombre;
 
 	private String passwd;
-
-	private String password;
-
+	
 	//bi-directional many-to-one association to Producto
 	@OneToMany(mappedBy="usuario1")
 	private List<Producto> productos1;
@@ -48,14 +44,6 @@ public class Usuario implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getApellido() {
-		return this.apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
 	}
 
 	public String getApellido1() {
@@ -96,14 +84,6 @@ public class Usuario implements Serializable {
 
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
-	}
-
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public List<Producto> getProductos1() {

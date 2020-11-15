@@ -1,5 +1,9 @@
 package g16.handler;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,11 +31,22 @@ public class RegisterHandler implements RequestHandler {
 		_usuario.setEmail(email);
         _usuario.setPasswd(password);
 		
-		DBHelper helper = new DBHelper();
-		helper.insert(_usuario);
+		//DBHelper helper = new DBHelper();
+		//helper.insert(_usuario);
 		
-		AccountManager am = new AccountManager();
-		am.insert(_usuario);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ChiquifyNew");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		
+		try {
+			et.begin();
+			em.persist(_usuario);
+			et.commit();
+		}catch(Exception e) {
+			if(et!=null) {
+				et.rollback();
+			}
+		}
 		
 		
 		return "index.html";
