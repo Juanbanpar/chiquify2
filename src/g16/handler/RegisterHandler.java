@@ -31,9 +31,10 @@ public class RegisterHandler implements RequestHandler {
 		_usuario.setEmail(email);
         _usuario.setPasswd(password);
 		
-		//DBHelper helper = new DBHelper();
-		//helper.insert(_usuario);
+		DBHelper helper = new DBHelper();
+		helper.insert(_usuario);
 		
+		/*
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ChiquifyNew");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
@@ -47,6 +48,7 @@ public class RegisterHandler implements RequestHandler {
 				et.rollback();
 			}
 		}
+		*/
 		
 		
 		return "index.html";

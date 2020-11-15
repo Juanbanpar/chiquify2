@@ -20,7 +20,7 @@ public class DBHelper {
 	private void connect() {
 		try {
 			Context _context = new InitialContext();
-			DataSource _datasource = (DataSource) _context.lookup("chiquify");
+			DataSource _datasource = (DataSource) _context.lookup("jdbc/chiquify");
 			 _connection = _datasource.getConnection();
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -45,15 +45,15 @@ public class DBHelper {
 		connect();
 	
 		try {
-			PreparedStatement ps = _connection.prepareStatement("INSERT INTO usuario ('EMAIL', 'PASSWD', 'NOMBRE', 'APELLIDO1', 'APELLIDO2', 'CIUDAD')  values (?,MD5(?),?,?,?,?)");
-			ps.setString(1, nueva.getEmail());
-			ps.setString(2, nueva.getPasswd());
-			ps.setString(3, nueva.getNombre());
-			ps.setString(4, nueva.getApellido1());
-			ps.setString(5, nueva.getApellido2());
-			ps.setString(6, nueva.getCiudad());
+			PreparedStatement ps = _connection.prepareStatement("INSERT INTO usuario values (?,?,?,?,?,MD5(?))");
+			ps.setString(1, nueva.getNombre());
+			ps.setString(2, nueva.getApellido1());
+			ps.setString(3, nueva.getApellido2());
+			ps.setString(4, nueva.getCiudad());
+			ps.setString(5, nueva.getEmail());
+			ps.setString(6, nueva.getPasswd());
 
-			ps.execute();
+			ps.executeUpdate();
 
 			ps.close();
 			
@@ -63,6 +63,33 @@ public class DBHelper {
 		}
 		
 		disconect();
+	}
+	
+	public Usuario getUser(String email, String password) {
+		connect();
+	
+		try {
+			PreparedStatement ps = _connection.prepareStatement("select * from usuario where email = ? and passwd = MD5(?)");
+			ps.setString(1, email);
+			ps.setString(2, password);
+			
+			ResultSet rs = ps.executeQuery();
+			Usuario user = null;
+			
+			if(rs.next()) user = new Usuario(rs.getString("email"), rs.getString("passwd"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("ciudad"));
+			
+			ps.close();
+			
+			disconect();
+			return user;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			disconect();
+			return null;
+		}
 	}
 	
 	

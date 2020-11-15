@@ -1,7 +1,15 @@
 package g16.handler;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import g16.model.*;
 
 public class LoginHandler implements RequestHandler {
 
@@ -9,20 +17,19 @@ public class LoginHandler implements RequestHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		/*
-		String name = request.getParameter("owner");
-		int balance = Integer.parseInt(request.getParameter("balance"));
+		String email = request.getParameter("email");
+		String passwd = request.getParameter("password");
 		
-		Account nuevo = new Account();
-		nuevo.setName(name);
-		nuevo.setBalance(balance);
+		DBHelper helper = new DBHelper();
+		Usuario nuevo = helper.getUser(email, passwd);
 		
-		//DBHelper helper = new DBHelper();
-		//helper.insert(nuevo);
+		HttpSession session = request.getSession(true);
+        session.setAttribute("user", nuevo);
 		
-		AccountManager am = new AccountManager();
-		am.insert(nuevo);
-		*/
+		//AccountManager am = new AccountManager();
+		//am.insert(nuevo);
+        
+        System.out.println(nuevo.getEmail());
 		
 		return "index.html";
 	}

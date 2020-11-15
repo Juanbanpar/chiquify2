@@ -48,6 +48,26 @@ public class AccountManager {
 		
 	}
 	
+	public Usuario getUser(String email, String password) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		try {
+			Usuario user = em.find(Usuario.class, a1);
+			
+			et.begin();
+		
+			em.persist(u);
+		
+			et.commit();
+		}catch(Exception e) {
+			if(et.isActive()) {
+				et.rollback();
+			}
+		}
+		
+		
+	}
+	
 	/*
 	public void transfer(int a1, int a2, int m) {
 		EntityManager em = emf.createEntityManager();
