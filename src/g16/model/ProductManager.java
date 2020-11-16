@@ -8,35 +8,35 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-public class AccountManager {
-
+public class ProductManager {
+	
 	private EntityManagerFactory emf;
 
-	public AccountManager() {
+	public ProductManager() {
 		super();
 		this.emf = Persistence.createEntityManagerFactory("chiquify");
 	}
 	
-	public List<Usuario> getAllUsers(){
-		List<Usuario> usuarios = null;
+	public List<Producto> getAllProducts(){
+		List<Producto> productos = null;
 		
 		EntityManager em = emf.createEntityManager();
 		
 		Query q = em.createQuery("Select * from Usuario");
 		
-		usuarios = q.getResultList();
+		productos = q.getResultList();
 		
-		return usuarios;
+		return productos;
 	}
 	
 	
-	public void insertUser(Usuario u) {
+	public void insertProduct(Producto p) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 		try {
 			et.begin();
 		
-			em.persist(u);
+			em.persist(p);
 		
 			et.commit();
 		}catch(Exception e) {
@@ -48,18 +48,18 @@ public class AccountManager {
 		
 	}
 	
-	public Usuario getUser(String email) {
+	public Producto getProduct(int id) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 		try {
-			Usuario user = em.find(Usuario.class, email);
+			Producto p = em.find(Producto.class, id);
 			
 			//et.begin();
 		
-			//em.persist(u);
+			//em.persist(p);
+			return p;
 		
 			//et.commit();
-			return user;
 		}catch(Exception e) {
 			if(et.isActive()) {
 				et.rollback();
@@ -67,31 +67,5 @@ public class AccountManager {
 		}
 		return null;
 		
-		
 	}
-	
-	/*
-	public void transfer(int a1, int a2, int m) {
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction et = em.getTransaction();
-		
-		Usuario Usuario1 = em.find(Usuario.class, a1);
-		Usuario Usuario2 = em.find(Usuario.class, a2);
-		
-		try {
-			et.begin();
-			Usuario1.setBalance(Usuario1.getBalance()-m);
-			Usuario2.setBalance(Usuario2.getBalance()+m);
-			em.merge(Usuario1);
-			em.merge(Usuario2);
-			et.commit();
-		}catch(Exception e) {
-			if(et.isActive()) {
-				et.rollback();
-			}
-		}
-		
-	}
-	*/
-	
 }
