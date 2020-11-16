@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import g16.model.*;
 
-public class PublishProduct implements RequestHandler{
+public class PublishProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
