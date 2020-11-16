@@ -76,7 +76,7 @@ public class DBHelper {
 			ResultSet rs = ps.executeQuery();
 			Usuario user = null;
 			
-			if(rs.next()) user = new Usuario(rs.getString("email"), rs.getString("passwd"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("ciudad"));
+			if(rs.next()) user = new Usuario(rs.getString("email"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("ciudad"), rs.getString("nombre"),rs.getString("passwd"));
 			
 			ps.close();
 			
@@ -92,8 +92,33 @@ public class DBHelper {
 		}
 	}
 	
+	public void updateUser(String email, Usuario user) {
+		connect();
+		
+		try {
+			PreparedStatement ps = _connection.prepareStatement("UPDATE usuario SET nombre = ?, apellido1 = ?, "
+					+ "apellido2 = ?, ciudad = ?, email = ?, passwd = MD5(?) WHERE email = ?");
+			ps.setString(1, user.getNombre());
+			ps.setString(2, user.getApellido1());
+			ps.setString(3, user.getApellido2());
+			ps.setString(4, user.getCiudad());
+			ps.setString(5, user.getEmail());
+			ps.setString(6, user.getPasswd());
+			ps.setString(7, email);
+
+			ps.executeUpdate();
+
+			ps.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		disconect();		
+	}
 	
-	public void delete(String email) {
+	public void deleteUser(String email) {
 		connect();
 		
 		try {
