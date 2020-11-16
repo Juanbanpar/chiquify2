@@ -24,14 +24,19 @@ public class LoginHandler implements RequestHandler {
 		Usuario nuevo = helper.getUser(email, passwd);
 		
 		HttpSession session = request.getSession(true);
-        session.setAttribute("user", nuevo);
+        session.setAttribute("email", nuevo.getEmail());
+        session.setAttribute("nombre", nuevo.getNombre());
+        session.setAttribute("apellido1", nuevo.getApellido1());
+        session.setAttribute("apellido2", nuevo.getApellido2());
+        session.setAttribute("ciudad", nuevo.getCiudad());
+        session.setAttribute("passwd", passwd);
 		
 		//AccountManager am = new AccountManager();
 		//am.insert(nuevo);
         
-        System.out.println(nuevo.getEmail());
+        //System.out.println(nuevo.getEmail());
 		
-		return "index.html";
+		return "user.jsp";
 	}
 
 }

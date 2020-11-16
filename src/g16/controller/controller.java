@@ -17,7 +17,7 @@ import g16.handler.*;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = {"/Controller", "/login", "/register"})
+@WebServlet(urlPatterns = {"/Controller", "/login", "/register", "/update"})
 public class controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -38,6 +38,7 @@ public class controller extends HttpServlet {
 		dictionary = new HashMap<String, RequestHandler>();
 		dictionary.put("/register", new RegisterHandler());
 		dictionary.put("/login", new LoginHandler());
+		//dictionary.put("/update", new UpdateHandler());
 	}
 
 	/**
