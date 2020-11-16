@@ -18,8 +18,8 @@ public class PublishProductHandler implements RequestHandler{
 		
 		String categoria = request.getParameter("categoria");
 		String descripcion = request.getParameter("descripcion");
-		String estado = request.getParameter("estado");
-		String imagen = request.getParameter("imagen");
+		String estado = "Disponible";
+		String imagen = "estoesunaimagen";
 		int precio = Integer.parseInt(request.getParameter("precio"));
 		String titulo = request.getParameter("titulo");
 		

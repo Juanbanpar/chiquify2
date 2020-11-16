@@ -14,7 +14,7 @@ public class AccountManager {
 
 	public AccountManager() {
 		super();
-		this.emf = Persistence.createEntityManagerFactory("chiquify");
+		this.emf = Persistence.createEntityManagerFactory("ChiquifyNew");
 	}
 	
 	public List<Usuario> getAllUsers(){

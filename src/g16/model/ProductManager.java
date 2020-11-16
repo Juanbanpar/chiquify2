@@ -14,7 +14,7 @@ public class ProductManager {
 
 	public ProductManager() {
 		super();
-		this.emf = Persistence.createEntityManagerFactory("chiquify");
+		this.emf = Persistence.createEntityManagerFactory("ChiquifyNew");
 	}
 	
 	public List<Producto> getAllProducts(){
