@@ -77,8 +77,48 @@ public class ProductManager {
 				et.rollback();
 			}
 		}
-		return null;
-		
+		return null;	
+	}
+	
+	public void modifyProduct(int id, Producto product) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		try {
+			Producto p = em.find(Producto.class, id);
+			
+			et.begin();
+			
+			p.setCategoria(product.getCategoria());
+			p.setDescripcion(product.getDescripcion());
+			p.setEstado(product.getEstado());
+			p.setImagen(product.getImagen());
+			p.setPrecio(product.getPrecio());
+			p.setTitulo(product.getTitulo());
+					
+			et.commit();
+		}catch(Exception e) {
+			if(et.isActive()) {
+				et.rollback();
+			}
+		}
+	}
+	
+	public void buyerProduct(int id, Usuario buyer) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		try {
+			Producto p = em.find(Producto.class, id);
+			
+			et.begin();
+			
+			p.setUsuario1(buyer);
+					
+			et.commit();
+		}catch(Exception e) {
+			if(et.isActive()) {
+				et.rollback();
+			}
+		}
 	}
 	
 	public void deleteProduct(int id) {
