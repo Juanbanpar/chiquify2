@@ -1,8 +1,8 @@
 CREATE DATABASE IF NOT EXISTS chiquify;
 USE chiquify;
 
-DROP TABLE IF EXISTS usuario;
 DROP TABLE IF EXISTS producto;
+DROP TABLE IF EXISTS usuario;
 
 CREATE TABLE `usuario` (
   `nombre` varchar(50) NOT NULL,
@@ -27,6 +27,6 @@ CREATE TABLE `producto` (
   PRIMARY KEY (`idproduct`),
   KEY `vendedor_idx` (`vendedor`),
   KEY `comprador_idx` (`comprador`),
-  CONSTRAINT `comprador` FOREIGN KEY (`comprador`) REFERENCES `user` (`email`) ON UPDATE CASCADE,
-  CONSTRAINT `vendedor` FOREIGN KEY (`vendedor`) REFERENCES `user` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `comprador` FOREIGN KEY (`comprador`) REFERENCES `usuario` (`email`) ON UPDATE CASCADE,
+  CONSTRAINT `vendedor` FOREIGN KEY (`vendedor`) REFERENCES `usuario` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Productos aÃ±adidos por los usuarios en la aplicaciÃ³n';
