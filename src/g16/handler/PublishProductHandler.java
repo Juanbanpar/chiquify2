@@ -42,7 +42,7 @@ public class PublishProductHandler implements RequestHandler{
         _usuario.setPasswd(passwd);
         
         Producto _product = new Producto();
-        _product.setIdproduct(1);
+        //_product.setIdproduct(1);
         _product.setCategoria(categoria);
         _product.setDescripcion(descripcion);
         _product.setEstado(estado);
