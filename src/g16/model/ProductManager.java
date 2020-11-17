@@ -68,4 +68,23 @@ public class ProductManager {
 		return null;
 		
 	}
+	
+	public void deleteProduct(int id) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		try {
+			Producto p = em.find(Producto.class, id);
+			
+			et.begin();
+		
+			em.remove(p);
+		
+			et.commit();
+		}catch(Exception e) {
+			if(et.isActive()) {
+				et.rollback();
+			}
+		}
+		
+	}
 }
