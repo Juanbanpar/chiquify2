@@ -22,7 +22,19 @@ public class ProductManager {
 		
 		EntityManager em = emf.createEntityManager();
 		
-		Query q = em.createQuery("Select * from Usuario");
+		Query q = em.createQuery("Select * from Producto");
+		
+		productos = q.getResultList();
+		
+		return productos;
+	}
+	
+	public List<Producto> getAllProductsbyUser(Usuario user){
+		List<Producto> productos = null;
+		
+		EntityManager em = emf.createEntityManager();
+		
+		Query q = em.createQuery("Select * from Producto WHERE vendedor = " + user.getEmail());
 		
 		productos = q.getResultList();
 		

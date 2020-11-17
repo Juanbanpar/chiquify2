@@ -137,22 +137,22 @@
 						<h3>Update user information</h3>
 						<form class="row login_form" METHOD=POST ACTION="update">
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" value = <% out.print(session.getAttribute("nombre")); %>required>
+								<input type="text" class="form-control" id="name" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required value = <% out.print(session.getAttribute("nombre")); %>>
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="lastname1" placeholder="First Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lastname1'" value = <% out.print(session.getAttribute("apellido1")); %>required>
+								<input type="text" class="form-control" id="name" name="lastname1" placeholder="First Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lastname1'" required value = <% out.print(session.getAttribute("apellido1")); %>>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="lastname2" placeholder="Second Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lastname2'" value = <% out.print(session.getAttribute("apellido2")); %>required>
+								<input type="text" class="form-control" id="name" name="lastname2" placeholder="Second Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lastname2'" required value = <% out.print(session.getAttribute("apellido2")); %>>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="city" placeholder="City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'" value = <% out.print(session.getAttribute("ciudad")); %>required>
+								<input type="text" class="form-control" id="name" name="city" placeholder="City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'" required value = <% out.print(session.getAttribute("ciudad")); %>>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" value = <% out.print(session.getAttribute("email")); %>required>
+								<input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required value = <% out.print(session.getAttribute("email")); %>>
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" value = <% out.print(session.getAttribute("passwd")); %>required>
+								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required value = <% out.print(session.getAttribute("passwd")); %>>
 							</div>
 
 							<div class="col-md-12 form-group">
