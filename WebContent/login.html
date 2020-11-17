@@ -136,10 +136,10 @@
 						<h3>Log in to enter</h3>
 						<form class="row login_form" METHOD=POST ACTION="login">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+								<input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"required>
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"required>
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
