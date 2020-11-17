@@ -14,6 +14,17 @@ import g16.model.*;
 public class DeleteProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-		return null;
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		ProductManager pm = new ProductManager();
+		Producto product = pm.getProduct(id);
+		
+		HttpSession session = request.getSession(true);
+		if (!session.getAttribute("email").equals(product.getUsuario2().getEmail())) return "error.html";
+		
+		pm.deleteProduct(id);
+		
+		return "index.html";
 	}
 }
