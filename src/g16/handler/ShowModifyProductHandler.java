@@ -11,21 +11,14 @@ import javax.servlet.http.HttpSession;
 
 import g16.model.*;
 
-public class DeleteProductHandler implements RequestHandler{
+public class ShowModifyProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
-		//int id = Integer.parseInt(request.getParameter("id"));
 		HttpSession session = request.getSession(true);
-		int id = Integer.parseInt((String)session.getAttribute("idtoEdit"));
+		session.setAttribute("idtoEdit", request.getParameter("Id"));
 		
-		ProductManager pm = new ProductManager();
-		Producto product = pm.getProduct(id);
-		
-		if (!session.getAttribute("email").equals(product.getVendedor().getEmail())) return "error.html";
-		
-		pm.deleteProduct(id);
-		
-		return "user.jsp";
+		//return request.getParameter("Id");
+		return "editProduct.jsp";
 	}
 }

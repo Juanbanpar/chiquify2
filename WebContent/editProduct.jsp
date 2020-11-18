@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="g16.model.DBHelper"%> 
+    pageEncoding="ISO-8859-1" import="g16.model.*"%> 
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -113,33 +113,43 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner">
-						<h3>Update user information</h3>
-						<form class="row login_form" METHOD=POST ACTION="update">
-                            <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required value = <% out.print("'" + session.getAttribute("nombre") + "'"); %>>
+						<h3>Update product information</h3>
+						<% ProductManager pm = new ProductManager(); %>
+						<% Producto product = pm.getProduct(Integer.parseInt((String)session.getAttribute("idtoEdit"))); %>
+						<form class="row login_form" METHOD=POST ACTION="modifyproduct">							
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="titulo" placeholder="Título" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Título'" required value = <% out.print("'" + (String)product.getTitulo() + "'"); %>>
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="lastname1" placeholder="First Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lastname1'" required value = <% out.print("'" + session.getAttribute("apellido1") + "'"); %>>
+								<select name="categoria" id="cars">
+	    							<option value="abrigo">Abrigo</option>
+	    							<option value="jersey">Jersey</option>
+	    							<option value="sudadera">Sudadera</option>
+	    							<option value="pantalon">Pantalón</option>
+	    							<option value="zapato">Zapato</option>
+	    							<option value="vestido">Vestido</option>
+	    							<option value="falda">Falda</option>
+	    							<option value="camiseta">Camiseta</option>
+	    							<option value="banhador">Bañador</option>
+	    							<option value="chandal">Chandal</option>
+	    							<option value="bolso">Bolso</option>
+	    							<option value="accesorio">Accesorio</option>
+	    							<option value="bufanda">Bufanda</option>
+	    							<option value="corbata">Corbata</option>
+	  							</select>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="lastname2" placeholder="Second Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lastname2'" required value = <% out.print("'" + session.getAttribute("apellido2") + "'"); %>>
+								<input type="text" class="form-control" id="name" name="descripcion" placeholder="Descripción" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Descripción'" required value = <% out.print("'" + (String)product.getDescripcion() + "'"); %>>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="city" placeholder="City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'" required value = <% out.print("'" + session.getAttribute("ciudad") + "'"); %>>
-							</div>
-                            <div class="col-md-12 form-group">
-								<input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required value = <% out.print(session.getAttribute("email")); %>>
+								<input 'number' step='1' value=<%out.print("'" + product.getPrecio() + "'"); %> placeholder='0' name="precio" pattern="^\d*(\.\d{0,2})?$" placeholder="Precio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Precio'">€
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required value = <% out.print("'" + session.getAttribute("passwd") + "'"); %>>
-							</div>
-
-							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="primary-btn">Update</button>
+								<button type="submit" value="submit" class="primary-btn">Modify product</button>
 							</div>
 						</form>
-						<form class="row login_form" METHOD=POST ACTION="delete">
-							<button type="submit" value="submit" class="primary-btn">Delete account</button>
+						<form class="row login_form" METHOD=POST ACTION="deleteproduct">
+							<button type="submit" value="submit" class="primary-btn">Delete product</button>
 						</form>
 					</div>
 				</div>

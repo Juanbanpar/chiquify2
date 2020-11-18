@@ -14,8 +14,10 @@ import g16.model.*;
 public class ModifyProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession(true);
 		
-		int id = Integer.parseInt(request.getParameter("id"));
+		//int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt((String)session.getAttribute("idtoEdit"));
 		String categoria = request.getParameter("categoria");
 		String descripcion = request.getParameter("descripcion");
 		String estado = "Disponible";
@@ -26,8 +28,7 @@ public class ModifyProductHandler implements RequestHandler{
 		ProductManager pm = new ProductManager();
 		Producto product = pm.getProduct(id);
 		
-		HttpSession session = request.getSession(true);
-		if (!session.getAttribute("email").equals(product.getUsuario2().getEmail())) return "error.html";
+		if (!session.getAttribute("email").equals(product.getVendedor().getEmail())) return "error.html";
 		
 		product.setCategoria(categoria);
 		product.setDescripcion(descripcion);
@@ -38,6 +39,6 @@ public class ModifyProductHandler implements RequestHandler{
 		
 		pm.modifyProduct(id, product);
 		
-		return "index.html";
+		return "user.jsp";
 	}
 }
