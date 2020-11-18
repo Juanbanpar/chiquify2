@@ -21,7 +21,7 @@ public class DeleteProductHandler implements RequestHandler{
 		Producto product = pm.getProduct(id);
 		
 		HttpSession session = request.getSession(true);
-		if (!session.getAttribute("email").equals(product.getUsuario2().getEmail())) return "error.html";
+		if (!session.getAttribute("email").equals(product.getVendedor().getEmail())) return "error.html";
 		
 		pm.deleteProduct(id);
 		

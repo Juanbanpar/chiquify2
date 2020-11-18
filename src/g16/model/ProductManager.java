@@ -22,7 +22,7 @@ public class ProductManager {
 		
 		EntityManager em = emf.createEntityManager();
 		
-		Query q = em.createQuery("Select * from Producto");
+		Query q = em.createQuery("Select p from Producto p");
 		
 		productos = q.getResultList();
 		
@@ -33,8 +33,8 @@ public class ProductManager {
 		List<Producto> productos = null;
 		
 		EntityManager em = emf.createEntityManager();
-		
-		Query q = em.createQuery("Select * from Producto WHERE vendedor = " + user.getEmail());
+				
+		Query q = em.createQuery("Select p from Producto p WHERE p.vendedor = :user").setParameter("user", user);
 		
 		productos = q.getResultList();
 		

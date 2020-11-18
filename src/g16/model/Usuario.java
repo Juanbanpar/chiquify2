@@ -28,11 +28,11 @@ public class Usuario implements Serializable {
 	private String passwd;
 	
 	//bi-directional many-to-one association to Producto
-	@OneToMany(mappedBy="usuario1")
+	@OneToMany(mappedBy="comprador")
 	private List<Producto> productos1;
 
 	//bi-directional many-to-one association to Producto
-	@OneToMany(mappedBy="usuario2")
+	@OneToMany(mappedBy="vendedor")
 	private List<Producto> productos2;
 
 	public Usuario() {
