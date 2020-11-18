@@ -15,16 +15,17 @@ public class DeleteProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
-		int id = Integer.parseInt(request.getParameter("id"));
+		//int id = Integer.parseInt(request.getParameter("id"));
+		HttpSession session = request.getSession(true);
+		int id = Integer.parseInt((String)session.getAttribute("idtoEdit"));
 		
 		ProductManager pm = new ProductManager();
 		Producto product = pm.getProduct(id);
 		
-		HttpSession session = request.getSession(true);
 		if (!session.getAttribute("email").equals(product.getVendedor().getEmail())) return "error.html";
 		
 		pm.deleteProduct(id);
 		
-		return "index.html";
+		return "user.jsp";
 	}
 }
