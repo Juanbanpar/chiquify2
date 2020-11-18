@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="g16.model.*" import="java.util.List" %> 
+    pageEncoding="ISO-8859-1" import="g16.model.DBHelper"%> 
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -105,7 +105,7 @@
                                 <input type="submit" class="primary-btn" value="Publish product" />
                             </form>
 							<h4>Check your products</h4>
-							<form action="products.jsp">
+							<form action="myproducts.jsp">
                                 <input type="submit" class="primary-btn" value="My products" />
                             </form>
 						</div>
@@ -113,22 +113,34 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner">
+						<h3>Update user information</h3>
+						<form class="row login_form" METHOD=POST ACTION="update">
+                            <div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required value = <% out.print(session.getAttribute("idtoEdit")); %>>
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="lastname1" placeholder="First Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lastname1'" required value = <% out.print(session.getAttribute("apellido1")); %>>
+							</div>
+                            <div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="lastname2" placeholder="Second Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lastname2'" required value = <% out.print(session.getAttribute("apellido2")); %>>
+							</div>
+                            <div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="city" placeholder="City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'" required value = <% out.print(session.getAttribute("ciudad")); %>>
+							</div>
+                            <div class="col-md-12 form-group">
+								<input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required value = <% out.print(session.getAttribute("email")); %>>
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required value = <% out.print(session.getAttribute("passwd")); %>>
+							</div>
 
-						<h3>List of your products</h3>
-						<% ProductManager pm = new ProductManager(); %>
-						<% String email = (String) session.getAttribute("email"); %>
-						<% Usuario user = new Usuario(); %>
-						<% user.setEmail(email); %>
-						<% List<Producto> productos = pm.getAllProductsbyUser(user); %>
-						<% for(int i = 0; i < productos.size(); i++){ %>
-                            <form class="row login_form" METHOD=POST ACTION="showmodifyproduct">
-                            	<input type="text" name="Id" value = <% out.print(productos.get(i).getIdproduct()); %> readonly>
-								<p> <% out.print(productos.get(i).getTitulo()); %> </p>
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" value="submit" class="primary-btn">Edit</button>
-                                </div>
-                            </form>
-                        <% } %>
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="primary-btn">Update</button>
+							</div>
+						</form>
+						<form class="row login_form" METHOD=POST ACTION="delete">
+							<button type="submit" value="submit" class="primary-btn">Delete account</button>
+						</form>
 					</div>
 				</div>
 			</div>
