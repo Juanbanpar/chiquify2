@@ -52,7 +52,7 @@
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
 							<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-							<li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+							<li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="nav-item"><a href="cart.html" class="cart"><span class="ti-bag"></span></a></li>
@@ -100,8 +100,14 @@
 					<div class="login_box_img">
 						<img class="img-fluid" src="img/login.jpg" alt="">
 						<div class="hover">
-							<h4>New to our website?</h4>
-							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+                            <h4>Start selling a new product</h4>
+							<form action="publishproduct.html">
+                                <input type="submit" class="primary-btn" value="Publish product" />
+                            </form>
+							<h4>Check your products</h4>
+							<form action="products.jsp">
+                                <input type="submit" class="primary-btn" value="My products" />
+                            </form>
 						</div>
 					</div>
 				</div>
