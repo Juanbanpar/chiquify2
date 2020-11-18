@@ -84,7 +84,7 @@ public class ProductManager {
 			return p;
 		
 			//et.commit();
-		}catch(Exception e) {
+		}catch(Exception e) {	
 			if(et.isActive()) {
 				et.rollback();
 			}

@@ -118,7 +118,7 @@
 						<% Producto product = pm.getProduct(Integer.parseInt((String)session.getAttribute("idtoEdit"))); %>
 						<form class="row login_form" METHOD=POST ACTION="modifyproduct">							
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="titulo" placeholder="Título" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Título'" required value = <% out.print((String)product.getTitulo()); %>>
+								<input type="text" class="form-control" id="name" name="titulo" placeholder="Título" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Título'" required value = <% out.print("'" + (String)product.getTitulo() + "'"); %>>
 							</div>
 							<div class="col-md-12 form-group">
 								<select name="categoria" id="cars">
@@ -139,10 +139,10 @@
 	  							</select>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="descripcion" placeholder="Descripción" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Descripción'" required value = <% out.print((String)product.getDescripcion()); %>>
+								<input type="text" class="form-control" id="name" name="descripcion" placeholder="Descripción" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Descripción'" required value = <% out.print("'" + (String)product.getDescripcion() + "'"); %>>
 							</div>
                             <div class="col-md-12 form-group">
-								<input 'number' step='1' value='0' placeholder='0' name="precio" pattern="^\d*(\.\d{0,2})?$" placeholder="Precio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Precio'" value = <% out.print(product.getPrecio()); %>>€
+								<input 'number' step='1' value=<%out.print("'" + product.getPrecio() + "'"); %> placeholder='0' name="precio" pattern="^\d*(\.\d{0,2})?$" placeholder="Precio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Precio'">€
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="primary-btn">Modify product</button>
