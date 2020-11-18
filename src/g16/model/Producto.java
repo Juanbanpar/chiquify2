@@ -9,8 +9,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.persistence.*;
+
+import sun.misc.IOUtils;
 
 
 /**
@@ -86,7 +89,7 @@ public class Producto implements Serializable {
 		return decodeBase64BinaryToFile(this.imagen);
 	}
 
-	public void setImagen(File imagen) {
+	public void setImagen(InputStream imagen) {
 		this.imagen = encodeFileToBase64Binary(imagen);
 	}
 
@@ -122,14 +125,14 @@ public class Producto implements Serializable {
 		this.vendedor = vendedor;
 	}
 	
-	private String encodeFileToBase64Binary(File file){
+	private String encodeFileToBase64Binary(InputStream file){
         String encodedfile = null;
         try {
-            FileInputStream fileInputStreamReader = new FileInputStream(file);
-            byte[] bytes = new byte[(int)file.length()];
-            fileInputStreamReader.read(bytes);
-            encodedfile = Base64.getEncoder().encodeToString(bytes);
-            fileInputStreamReader.close();
+        	
+        	byte[] imageBytes = new byte[(int)((CharSequence) file).length()];
+        	file.read(imageBytes, 0, imageBytes.length);
+        	file.close();
+        	encodedfile = Base64.getEncoder().encodeToString(imageBytes);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

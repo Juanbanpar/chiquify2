@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import g16.handler.*;
  */
 @WebServlet(urlPatterns = {"/Controller", "/login", "/register", "/update", "/delete", "/publishproduct", "/showmodifyproduct",
 		"/modifyproduct", "/deleteproduct", "/addbuyer"})
+@MultipartConfig
 public class controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

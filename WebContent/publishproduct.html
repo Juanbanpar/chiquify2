@@ -93,7 +93,7 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Publish product</h3>
-						<form class="row login_form" METHOD=POST ACTION="publishproduct">
+						<form class="row login_form" METHOD=POST ACTION="publishproduct" enctype="multipart/form-data">
                             <div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="titulo" placeholder="Título" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Título'">
 							</div>
@@ -114,6 +114,9 @@
 	    							<option value="bufanda">Bufanda</option>
 	    							<option value="corbata">Corbata</option>
 	  							</select>
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="file" class="form-control" id="name" name="imagen" accept="image/jpg" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
 							</div>
                             <div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="descripcion" placeholder="Descripción" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Descripción'">
