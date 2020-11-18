@@ -1,6 +1,15 @@
 package g16.model;
 
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Base64;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javax.persistence.*;
 
 
@@ -73,12 +82,12 @@ public class Producto implements Serializable {
 		this.estado = estado;
 	}
 
-	public String getImagen() {
-		return this.imagen;
+	public Path getImagen() {
+		return decodeBase64BinaryToFile(this.imagen);
 	}
 
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+	public void setImagen(File imagen) {
+		this.imagen = encodeFileToBase64Binary(imagen);
 	}
 
 	public int getPrecio() {
@@ -112,5 +121,37 @@ public class Producto implements Serializable {
 	public void setUsuario2(Usuario usuario2) {
 		this.usuario2 = usuario2;
 	}
+	
+	private String encodeFileToBase64Binary(File file){
+        String encodedfile = null;
+        try {
+            FileInputStream fileInputStreamReader = new FileInputStream(file);
+            byte[] bytes = new byte[(int)file.length()];
+            fileInputStreamReader.read(bytes);
+            encodedfile = Base64.getEncoder().encodeToString(bytes);
+            fileInputStreamReader.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return encodedfile;
+    }
+	
+	private Path decodeBase64BinaryToFile(String string){
+    	byte[] decodedImg = Base64.getDecoder().decode(string.getBytes());
+    	Path destinationFile = Paths.get("../../../WebContent/product-img", this.idproduct + ".jpg");
+    	try {
+			Files.write(destinationFile, decodedImg);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        return destinationFile;
+    }
 
 }
