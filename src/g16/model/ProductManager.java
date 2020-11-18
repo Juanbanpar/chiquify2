@@ -41,6 +41,18 @@ public class ProductManager {
 		return productos;
 	}
 	
+	public List<Producto> getAllProductsBuyed(Usuario user){
+		List<Producto> productos = null;
+		
+		EntityManager em = emf.createEntityManager();
+		
+		Query q = em.createQuery("Select * from Producto WHERE comprador = " + user.getEmail() + " and estado = 'vendido'");
+		
+		productos = q.getResultList();
+		
+		return productos;
+	}
+	
 	
 	public void insertProduct(Producto p) {
 		EntityManager em = emf.createEntityManager();
