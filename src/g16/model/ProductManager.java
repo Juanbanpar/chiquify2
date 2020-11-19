@@ -41,6 +41,18 @@ public class ProductManager {
 		return productos;
 	}
 	
+	public List<Producto> getAllProductsbyString(String cadena){
+		List<Producto> productos = null;
+		
+		EntityManager em = emf.createEntityManager();
+				
+		Query q = em.createQuery("Select p from Producto p WHERE p.titulo LIKE :cadena").setParameter("cadena", cadena);
+		
+		productos = q.getResultList();
+		
+		return productos;
+	}
+	
 	public List<Producto> getAllProductsBuyed(Usuario user){
 		List<Producto> productos = null;
 		
