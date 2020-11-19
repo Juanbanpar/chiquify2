@@ -111,6 +111,7 @@
                         <tbody>
                         	<% ProductManager pm = new ProductManager(); %>
 							<% List<Item> cart = (List<Item>)session.getAttribute("cart"); %>
+							<% int subtotal = 0; %>
 							<% for(int i = 0; i < cart.size(); i++){ %>
 	                        	<!--================ Product Area =================-->
 	                            <tr>
@@ -128,38 +129,34 @@
 	                                    <h5> <% out.print(cart.get(i).getProduct().getPrecio()); %> euros</h5>
 	                                </td>
 	                                <td>
-	                                    <div class="product_count">
-	                                        <input type="text" name="qty" id="sst" maxlength="12" value=<% out.print("'" + cart.get(i).getQuantity() + "'"); %> title="Quantity:"
-	                                            class="input-text qty">
-											<div class="col-md-12 form-group">
-												<button type="submit" value="submit" class="primary-btn">Set</button>
-						                	</div>
-	                                    </div>
+	                                	<form class="row login_form" METHOD=POST ACTION="changeqty">
+		                                    <div class="product_count">
+		                                    	<input type="hidden" name="IndexCart" value = <% out.print(i); %> readonly>
+		                                        <input type="text" name="qty" id="sst" maxlength="12" value=<% out.print("'" + cart.get(i).getQuantity() + "'"); %> title="Quantity:"
+		                                            class="input-text qty">
+												<div class="col-md-12 form-group">
+													<button type="submit" value="submit" class="primary-btn">Set</button>
+							                	</div>
+		                                    </div>
+	                                    </form>
 	                                </td>
 	                                <td>
 	                                	<% int total = cart.get(i).getProduct().getPrecio() * cart.get(i).getQuantity(); %>
+	                                	<% subtotal += total; %>
 	                                    <h5> <% out.print(total); %> euros</h5>
 	                                </td>
 									 <td>
- 										<div class="col-md-12 form-group">
-		                                    <button type="submit" value="submit" class="primary-btn">Remove</button>
-		                                </div>
+										<form class="row login_form" METHOD=POST ACTION="removefromcart">
+											<input type="hidden" name="IndexCart" value = <% out.print(i); %> readonly>
+	 										<div class="col-md-12 form-group">
+			                                    <button type="submit" value="submit" class="primary-btn">Remove</button>
+			                                </div>
+		                                </form>
 	                                </td>
 	                            </tr>
 	                            <!--================ End Product Area =================-->
 	                        <% } %>
                             
-                            <tr class="bottom_button">
-                                <td>
-                                    <a class="gray_btn" href="#">Update Cart</a>
-                                </td>
-                                <td>
-
-                                </td>
-                                <td>
-
-                                </td>
-                            </tr>
                             <tr>
                                 <td>
 
@@ -171,7 +168,7 @@
                                     <h5>Subtotal</h5>
                                 </td>
                                 <td>
-                                    <h5>$2160.00</h5>
+                                    <h5> <% out.print(subtotal); %> euros </h5>
                                 </td>
                             </tr>
                             <tr class="out_button_area">
@@ -186,7 +183,7 @@
                                 </td>
                                 <td>
                                     <div class="checkout_btn_inner d-flex align-items-center">
-                                        <a class="gray_btn" href="#">Continue Shopping</a>
+                                        <a class="gray_btn" href="index.html">Continue Shopping</a>
                                         <a class="primary-btn" href="#">Proceed to checkout</a>
                                     </div>
                                 </td>
