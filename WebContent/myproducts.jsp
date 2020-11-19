@@ -55,7 +55,7 @@
 							<li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li class="nav-item"><a href="cart.html" class="cart"><span class="ti-bag"></span></a></li>
+							<li class="nav-item"><a href="cart.jsp" class="cart"><span class="ti-bag"></span></a></li>
 							<li class="nav-item">
 								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
 							</li>
@@ -122,7 +122,7 @@
 						<% List<Producto> productos = pm.getAllProductsbyUser(user); %>
 						<% for(int i = 0; i < productos.size(); i++){ %>
                             <form class="row login_form" METHOD=POST ACTION="showmodifyproduct">
-                            	<input type="text" name="Id" value = <% out.print(productos.get(i).getIdproduct()); %> readonly>
+                            	<input type="hidden" name="Id" value = <% out.print(productos.get(i).getIdproduct()); %> readonly>
 								<p> <% out.print(productos.get(i).getTitulo()); %> </p>
                                 <div class="col-md-12 form-group">
                                     <button type="submit" value="submit" class="primary-btn">Edit</button>
