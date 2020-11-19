@@ -22,7 +22,7 @@ public class AddtoCartHandler implements RequestHandler{
 		//Producto productModel = new Producto();
 		
 		HttpSession session = request.getSession();
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("Id"));
 		
 		ProductManager pm = new ProductManager();
 		
@@ -54,6 +54,6 @@ public class AddtoCartHandler implements RequestHandler{
 		}
 		
 		//response.sendRedirect("cart");
-		return "cart.jsp";
+		return "index.html";
 	}
 }

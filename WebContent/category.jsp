@@ -258,9 +258,6 @@
                                         <div class="col-md-12 form-group">
                                             <button type="submit" value="submit" class="primary-btn">View</button>
                                         </div>
-                                        <div class="col-md-12 form-group">
-                                            <button type="submit" value="submit" class="primary-btn">Add to bag</button>
-                                        </div>
 									</div>
 								</div>
 							</div>

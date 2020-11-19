@@ -132,18 +132,21 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
-						<h3><% out.print((String)product.getTitulo()); %></h3>
-						<h2><% out.print(product.getPrecio() + " euros"); %></h2>
-						<ul class="list">
-							<li><a class="active" href="#"><span>Category</span> : <% out.print((String)product.getCategoria()); %></a></li>
-							<li><a href="#"><span>Availibility</span> : <% out.print((String)product.getEstado()); %></a></li>
-						</ul>
-						<p><% out.print((String)product.getDescripcion()); %></p>
-						<div class="card_area d-flex align-items-center">
-							<a class="primary-btn" href="#">Add to Cart</a>
-							<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
-							<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
-						</div>
+						<form METHOD=POST ACTION="addtocart">
+							<input type="hidden" name="Id" value = <% out.print(product.getIdproduct()); %> readonly>
+							<h3><% out.print((String)product.getTitulo()); %></h3>
+							<h2><% out.print(product.getPrecio() + " euros"); %></h2>
+							<ul class="list">
+								<li><a class="active" href="#"><span>Category</span> : <% out.print((String)product.getCategoria()); %></a></li>
+								<li><a href="#"><span>Availibility</span> : <% out.print((String)product.getEstado()); %></a></li>
+							</ul>
+							<p><% out.print((String)product.getDescripcion()); %></p>
+							<div class="card_area d-flex align-items-center">
+		                        <div class="col-md-12 form-group">
+		                            <button type="submit" value="submit" class="primary-btn">Add to cart</button>
+		                        </div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
