@@ -69,6 +69,6 @@ public class PublishProductHandler implements RequestHandler{
         ProductManager pm = new ProductManager();
         pm.insertProduct(_product);
 		
-		return "index.html";
+		return "index.jsp";
 	}
 }

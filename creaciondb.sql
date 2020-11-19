@@ -12,14 +12,13 @@ CREATE TABLE `usuario` (
   `email` varchar(45) NOT NULL,
   `passwd` varchar(255) NOT NULL,
   PRIMARY KEY (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabla que contiene la informaciÃ³n de todos los usuarios registrados en la aplicaciÃ³n';
-
+);
 CREATE TABLE `producto` (
   `idproduct` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(45) NOT NULL,
   `categoria` varchar(45) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
-  `imagen` varchar(45) NOT NULL,
+  `imagen` LONGTEXT NOT NULL,
   `precio` int NOT NULL,
   `vendedor` varchar(45) NOT NULL,
   `comprador` varchar(45) DEFAULT NULL,

@@ -17,7 +17,7 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Karma Shop</title>
+	<title>Chiquify</title>
 
 	<!--
 		CSS
@@ -40,7 +40,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light main_box">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+					<a class="navbar-brand logo_h" href="index.jsp"><img src="img/logo.png" alt=""></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-bar"></span>
@@ -50,12 +50,27 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-							<li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
+							<li class="nav-item active"><a class="nav-link" href="index.jsp">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
+							<%
+				                if(session.getAttribute("email") != null)
+				                {
+				            %>
+				                 <li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
+				            <%
+				                }
+				            %>
+							
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li class="nav-item"><a href="cart.html" class="cart"><span class="ti-bag"></span></a></li>
+							<%
+				                if(session.getAttribute("cart") != null)
+				                {
+				            %>
+							<li class="nav-item"><a href="cart.jsp" class="cart"><span class="ti-bag"></span></a></li>
+							<%
+				                }
+				            %>
 							<li class="nav-item">
 								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
 							</li>
@@ -76,21 +91,7 @@
 	</header>
 	<!-- End Header Area -->
 
-	<!-- Start Banner Area -->
-	<section class="banner-area organic-breadcrumb">
-		<div class="container">
-			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-				<div class="col-first">
-					<h1>User</h1>
-					<nav class="d-flex align-items-center">
-						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="category.html">User</a>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Banner Area -->
+	<section class="order_details section_gap"></section>
 
 	<!--================User Box Area =================-->
 	<section class="login_box_area section_gap">
@@ -141,8 +142,14 @@
                             <div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="descripcion" placeholder="Descripción" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Descripción'" required value = <% out.print("'" + (String)product.getDescripcion() + "'"); %>>
 							</div>
+							<div class="col-md-12 form-group">
+								<img src= <% out.print("'" + "data:image/jpeg;base64," + product.getImagen() + "'"); %> style="width: 80%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="file" class="form-control" id="name" name="imagen" accept="image/jpg" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
+							</div>
                             <div class="col-md-12 form-group">
-								<input 'number' step='1' value=<%out.print("'" + product.getPrecio() + "'"); %> placeholder='0' name="precio" pattern="^\d*(\.\d{0,2})?$" placeholder="Precio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Precio'">€
+								<input type='number' step='1' value=<%out.print("'" + product.getPrecio() + "'"); %> placeholder='0' name="precio" pattern="^\d*(\.\d{0,2})?$" placeholder="Precio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Precio'">euro
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="primary-btn">Modify product</button>

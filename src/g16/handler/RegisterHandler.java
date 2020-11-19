@@ -34,24 +34,8 @@ public class RegisterHandler implements RequestHandler {
 		DBHelper helper = new DBHelper();
 		helper.insert(_usuario);
 		
-		/*
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ChiquifyNew");
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction et = em.getTransaction();
 		
-		try {
-			et.begin();
-			em.persist(_usuario);
-			et.commit();
-		}catch(Exception e) {
-			if(et!=null) {
-				et.rollback();
-			}
-		}
-		*/
-		
-		
-		return "index.html";
+		return "index.jsp";
 	}
 
 }

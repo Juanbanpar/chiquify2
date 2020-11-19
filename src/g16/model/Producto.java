@@ -1,19 +1,23 @@
 package g16.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Base64;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
-import sun.misc.IOUtils;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 
 /**
@@ -85,8 +89,8 @@ public class Producto implements Serializable {
 		this.estado = estado;
 	}
 
-	public Path getImagen() {
-		return decodeBase64BinaryToFile(this.imagen);
+	public String getImagen() {
+		return this.imagen;
 	}
 
 	public void setImagen(InputStream imagen) {
@@ -125,14 +129,11 @@ public class Producto implements Serializable {
 		this.vendedor = vendedor;
 	}
 	
-	private String encodeFileToBase64Binary(InputStream file){
+	private String encodeFileToBase64Binary(InputStream inputStream){
         String encodedfile = null;
         try {
-        	
-        	byte[] imageBytes = new byte[(int)((CharSequence) file).length()];
-        	file.read(imageBytes, 0, imageBytes.length);
-        	file.close();
-        	encodedfile = Base64.getEncoder().encodeToString(imageBytes);
+        	byte[] bytes = IOUtils.toByteArray(inputStream);
+        	encodedfile = Base64.getEncoder().encodeToString(bytes);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -144,11 +145,12 @@ public class Producto implements Serializable {
         return encodedfile;
     }
 	
-	private Path decodeBase64BinaryToFile(String string){
+	private String decodeBase64BinaryToFile(String string){
     	byte[] decodedImg = Base64.getDecoder().decode(string.getBytes());
-    	Path destinationFile = Paths.get("../../../WebContent/product-img", this.idproduct + ".jpg");
+    	String destinationFile = null;
     	try {
-			Files.write(destinationFile, decodedImg);
+    		destinationFile = "../product-img/" + this.idproduct + ".jpg";
+    		FileUtils.writeByteArrayToFile(new File("../../../WebContent/product-img/" + this.idproduct + ".jpg"), decodedImg);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

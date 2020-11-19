@@ -33,6 +33,6 @@ public class AddBuyerProductHandler implements RequestHandler{
 				
 		pm.buyerProduct(id, _usuario);
 		
-		return "index.html";
+		return "index.jsp";
 	}
 }

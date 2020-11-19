@@ -25,6 +25,6 @@ public class DeleteHandler implements RequestHandler{
 		
 		session.invalidate();
 		
-		return "index.html";
+		return "index.jsp";
 	}
 }
