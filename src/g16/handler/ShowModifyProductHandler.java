@@ -18,7 +18,6 @@ public class ShowModifyProductHandler implements RequestHandler{
 		HttpSession session = request.getSession(true);
 		session.setAttribute("idtoEdit", request.getParameter("Id"));
 		
-		//return request.getParameter("Id");
 		return "editProduct.jsp";
 	}
 }

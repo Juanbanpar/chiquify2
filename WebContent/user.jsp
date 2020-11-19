@@ -50,13 +50,13 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.jsp">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
 							<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
 							<%
 				                if(session.getAttribute("email") != null)
 				                {
 				            %>
-				                 <li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
+				                 <li class="nav-item active"><a class="nav-link" href="user.jsp">Profile</a></li>
 				            <%
 				                }
 				            %>
@@ -102,7 +102,7 @@
 						<img class="img-fluid" src="img/login.jpg" alt="">
 						<div class="hover">
                             <h4>Start selling a new product</h4>
-							<form action="publishproduct.html">
+							<form action="publishproduct.jsp">
                                 <input type="submit" class="primary-btn" value="Publish product" />
                             </form>
 							<h4>Check your products</h4>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="g16.model.*" import="java.util.List" %> 
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -48,8 +50,8 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.jsp">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
+							<li class="nav-item active"><a class="nav-link" href="login.jsp">Login</a></li>
 							<%
 				                if(session.getAttribute("email") != null)
 				                {
@@ -79,8 +81,8 @@
 		</div>
 		<div class="search_input" id="search_input_box">
 			<div class="container">
-				<form class="d-flex justify-content-between">
-					<input type="text" class="form-control" id="search_input" placeholder="Search Here">
+				<form class="d-flex justify-content-between" METHOD=GET ACTION="search">
+					<input type="text" class="form-control" id="search_input" name="cadena" placeholder="Search Here">
 					<button type="submit" class="btn"></button>
 					<span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
 				</form>
@@ -101,7 +103,7 @@
 						<div class="hover">
 							<h4>New to our website?</h4>
 							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-							<a class="primary-btn" href="registration.html">Register</a>
+							<a class="primary-btn" href="registration.jsp">Register</a>
 						</div>
 					</div>
 				</div>
@@ -116,14 +118,7 @@
 								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"required>
 							</div>
 							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">Keep me logged in</label>
-								</div>
-							</div>
-							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="primary-btn">Log In</button>
-								<a href="#">Forgot Password?</a>
 							</div>
 						</form>
 					</div>

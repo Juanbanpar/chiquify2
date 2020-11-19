@@ -52,7 +52,7 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.jsp">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
 							<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
 							<%
 				                if(session.getAttribute("email") != null)
@@ -73,7 +73,7 @@
 							<%
 				                }
 				            %>
-							<li class="nav-item">
+							<li class="nav-item active">
 								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
 							</li>
 						</ul>
@@ -152,7 +152,7 @@
         <% List <Producto> productos = pm.getAllProductsbyString(cadena); %>
         <% for(int i = 0; i < productos.size(); i++){ %>
             <form class="row login_form" METHOD=POST ACTION="viewproduct">
-                <input type="text" name="Id" value = <% out.print(productos.get(i).getIdproduct()); %> readonly>
+            	<input type="text" name="Id" value = <% out.print(productos.get(i).getIdproduct()); %> readonly>
                 <p> <% out.print(productos.get(i).getTitulo()); %> </p>
                 <div class="col-md-12 form-group">
                     <button type="submit" value="submit" class="primary-btn">View</button>

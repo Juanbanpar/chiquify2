@@ -51,7 +51,7 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.jsp">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
 							<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
 							<%
 				                if(session.getAttribute("email") != null)
@@ -61,6 +61,7 @@
 				            <%
 				                }
 				            %>
+							
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<%
@@ -81,8 +82,8 @@
 		</div>
 		<div class="search_input" id="search_input_box">
 			<div class="container">
-				<form class="d-flex justify-content-between">
-					<input type="text" class="form-control" id="search_input" placeholder="Search Here">
+				<form class="d-flex justify-content-between" METHOD=GET ACTION="search">
+					<input type="text" class="form-control" id="search_input" name="cadena" placeholder="Search Here">
 					<button type="submit" class="btn"></button>
 					<span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
 				</form>
@@ -100,8 +101,8 @@
 		<div class="container">
 			<div class="row s_product_inner">
 				<div class="col-lg-6">
-					<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-				</div>
+					<img src= <% out.print("'" + "data:image/jpeg;base64," + product.getImagen() + "'"); %> style="width: 80%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
+                </div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
 						<form METHOD=POST ACTION="addtocart">

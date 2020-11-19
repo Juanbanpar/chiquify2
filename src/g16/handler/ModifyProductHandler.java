@@ -1,10 +1,13 @@
 package g16.handler;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,19 +24,29 @@ public class ModifyProductHandler implements RequestHandler{
 		String categoria = request.getParameter("categoria");
 		String descripcion = request.getParameter("descripcion");
 		String estado = "Disponible";
-		String imagen = "estoesunaimagen";
 		int precio = Integer.parseInt(request.getParameter("precio"));
 		String titulo = request.getParameter("titulo");
 		
 		ProductManager pm = new ProductManager();
 		Producto product = pm.getProduct(id);
 		
-		if (!session.getAttribute("email").equals(product.getVendedor().getEmail())) return "error.html";
+		InputStream imagen = null;
+		try {
+			imagen = request.getPart("imagen").getInputStream();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		product.setCategoria(categoria);
 		product.setDescripcion(descripcion);
 		product.setEstado(estado);
+
 		product.setImagen(imagen);
+
 		product.setPrecio(precio);
 		product.setTitulo(titulo);
 		
