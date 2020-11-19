@@ -54,6 +54,6 @@ public class AddtoCartHandler implements RequestHandler{
 		}
 		
 		//response.sendRedirect("cart");
-		return "index.html";
+		return "cart.jsp";
 	}
 }
