@@ -63,7 +63,6 @@
 							
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
 							<%
 				                if(session.getAttribute("cart") != null)
 				                {
@@ -72,9 +71,6 @@
 							<%
 				                }
 				            %>
-=======
-							<li class="nav-item"><a href="cart.jsp" class="cart"><span class="ti-bag"></span></a></li>
->>>>>>> branch 'master' of https://github.com/PaquitoElChocolatero/Chiquify.git
 							<li class="nav-item">
 								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
 							</li>
