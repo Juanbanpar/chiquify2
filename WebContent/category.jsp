@@ -245,7 +245,9 @@
                     <% for(int i = 0; i < productos.size(); i++){ %>
 						<!-- single product -->
 						<div class="col-lg-4 col-md-6">
+							<form METHOD=POST ACTION="showproduct">
 							<div class="single-product">
+								<input type="hidden" name="Id" value = <% out.print(productos.get(i).getIdproduct()); %> readonly>
 								<img class="img-fluid" src="img/product/p1.jpg" alt="">
 								<div class="product-details">
 									<h6> <% out.print(productos.get(i).getTitulo()); %> </h6>
@@ -262,6 +264,7 @@
 									</div>
 								</div>
 							</div>
+							</form>
 						</div>
                     <% } %>
 					</div>
