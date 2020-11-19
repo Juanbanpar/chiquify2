@@ -183,7 +183,7 @@
                                 </td>
                                 <td>
                                     <div class="checkout_btn_inner d-flex align-items-center">
-                                        <a class="gray_btn" href="index.html">Continue Shopping</a>
+                                        <a class="gray_btn" href="index.jsp">Continue Shopping</a>
                                         <a class="primary-btn" href="#">Proceed to checkout</a>
                                     </div>
                                 </td>

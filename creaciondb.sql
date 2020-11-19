@@ -12,7 +12,8 @@ CREATE TABLE `usuario` (
   `email` varchar(45) NOT NULL,
   `passwd` varchar(255) NOT NULL,
   PRIMARY KEY (`email`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabla que contiene la información de todos los usuarios registrados en la aplicación';
+
 CREATE TABLE `producto` (
   `idproduct` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(45) NOT NULL,
