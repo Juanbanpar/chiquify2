@@ -1,5 +1,6 @@
 package g16.handler;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -33,6 +34,12 @@ public class ModifyProductHandler implements RequestHandler{
 		InputStream imagen = null;
 		try {
 			imagen = request.getPart("imagen").getInputStream();
+			if (imagen instanceof  FileInputStream) {
+				product.setImagen(imagen);
+			} else {
+				product.setBase64(product.getImagen());
+			}
+				
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -44,8 +51,6 @@ public class ModifyProductHandler implements RequestHandler{
 		product.setCategoria(categoria);
 		product.setDescripcion(descripcion);
 		product.setEstado(estado);
-
-		product.setImagen(imagen);
 
 		product.setPrecio(precio);
 		product.setTitulo(titulo);

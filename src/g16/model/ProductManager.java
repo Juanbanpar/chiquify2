@@ -116,7 +116,7 @@ public class ProductManager {
 			p.setCategoria(product.getCategoria());
 			p.setDescripcion(product.getDescripcion());
 			p.setEstado(product.getEstado());
-			p.setImagen(product.getImagen());
+			p.setBase64(product.getImagen());
 			p.setPrecio(product.getPrecio());
 			p.setTitulo(product.getTitulo());
 					

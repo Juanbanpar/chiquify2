@@ -111,7 +111,7 @@
 						<h3>Update product information</h3>
 						<% ProductManager pm = new ProductManager(); %>
 						<% Producto product = pm.getProduct(Integer.parseInt((String)session.getAttribute("idtoEdit"))); %>
-						<form class="row login_form" METHOD=POST ACTION="modifyproduct">							
+						<form class="row login_form" METHOD=POST ACTION="modifyproduct" enctype="multipart/form-data">							
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="titulo" placeholder="Título" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Título'" required value = <% out.print("'" + (String)product.getTitulo() + "'"); %>>
 							</div>

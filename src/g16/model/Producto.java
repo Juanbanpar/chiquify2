@@ -96,6 +96,10 @@ public class Producto implements Serializable {
 	public void setImagen(InputStream imagen) {
 		this.imagen = encodeFileToBase64Binary(imagen);
 	}
+	
+	public void setBase64(String imagen) {
+		this.imagen = imagen;
+	}
 
 	public int getPrecio() {
 		return this.precio;
@@ -143,20 +147,6 @@ public class Producto implements Serializable {
         }
 
         return encodedfile;
-    }
-	
-	private String decodeBase64BinaryToFile(String string){
-    	byte[] decodedImg = Base64.getDecoder().decode(string.getBytes());
-    	String destinationFile = null;
-    	try {
-    		destinationFile = "../product-img/" + this.idproduct + ".jpg";
-    		FileUtils.writeByteArrayToFile(new File("../../../WebContent/product-img/" + this.idproduct + ".jpg"), decodedImg);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-        return destinationFile;
     }
 
 }
