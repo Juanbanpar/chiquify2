@@ -117,6 +117,7 @@
 							</div>
 							<div class="col-md-12 form-group">
 								<select name="categoria" id="cars">
+									<option value="abrigo"><% out.print(product.getCategoria()); %></option>
 	    							<option value="abrigo">Abrigo</option>
 	    							<option value="jersey">Jersey</option>
 	    							<option value="sudadera">Sudadera</option>
