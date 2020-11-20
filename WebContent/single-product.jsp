@@ -101,7 +101,7 @@
 		<div class="container">
 			<div class="row s_product_inner">
 				<div class="col-lg-6">
-					<img src= <% out.print("'" + "data:image/jpeg;base64," + product.getImagen() + "'"); %> style="width: 80%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
+					<img src= <% out.print("'" + product.getImagen() + "'"); %> style="width: 80%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
                 </div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">

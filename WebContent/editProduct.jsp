@@ -137,7 +137,7 @@
 								<input type="text" class="form-control" id="name" name="descripcion" placeholder="Descripción" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Descripción'" required value = <% out.print("'" + (String)product.getDescripcion() + "'"); %>>
 							</div>
 							<div class="col-md-12 form-group">
-								<img src= <% out.print("'" + "data:image/jpeg;base64," + product.getImagen() + "'"); %> style="width: 80%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
+								<img src= <% out.print("'" + product.getImagen() + "'"); %> style="width: 80%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="file" class="form-control" id="name" name="imagen" accept="image/jpg" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">

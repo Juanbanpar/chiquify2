@@ -118,7 +118,7 @@
 	                                <td>
 	                                    <div class="media">
 	                                        <div class="d-flex">
-	                                            <img src= <% out.print("'" + "data:image/jpeg;base64," + cart.get(i).getProduct().getImagen() + "'"); %> style="width: 20%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
+	                                            <img src= <% out.print("'" + cart.get(i).getProduct().getImagen() + "'"); %> style="width: 20%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
 	                                        </div>
 	                                        <div class="media-body">
 	                                            <p> <% out.print(cart.get(i).getProduct().getTitulo()); %> </p>
