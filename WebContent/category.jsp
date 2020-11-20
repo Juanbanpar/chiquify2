@@ -263,7 +263,7 @@
 							<form METHOD=POST ACTION="showproduct">
 							<div class="single-product">
 								<input type="hidden" name="Id" value = <% out.print(productos.get(i).getIdproduct()); %> readonly>
-								<img src= <% out.print("'" + productos.get(i).getImagen() + "'"); %> style="width: 80%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
+								<img src= <% out.print("'" + "data:image/jpeg;base64," + productos.get(i).getImagen() + "'"); %> style="width: 80%" name="foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
 								<div class="product-details">
 									<h6> <% out.print(productos.get(i).getTitulo()); %> </h6>
 									<div class="price">
