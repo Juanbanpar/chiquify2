@@ -46,7 +46,7 @@ public class ProductManager {
 		
 		EntityManager em = emf.createEntityManager();
 				
-		Query q = em.createQuery("Select p from Producto p WHERE p.titulo LIKE :cadena").setParameter("cadena", cadena);
+		Query q = em.createQuery("Select p from Producto p WHERE p.titulo LIKE '%" + cadena + "%'");//.setParameter("cadena", cadena);
 		
 		productos = q.getResultList();
 		
