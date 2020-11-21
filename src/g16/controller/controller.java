@@ -20,7 +20,7 @@ import g16.handler.*;
  */
 @WebServlet(urlPatterns = {"/Controller", "/login", "/register", "/update", "/delete", "/publishproduct", "/showmodifyproduct",
 		"/modifyproduct", "/deleteproduct", "/addbuyer", "/search", "/showproduct", "/addtocart", "/changeqty", "/removefromcart", 
-		"/sendmessage", "/showmessages"})
+		"/sendmessage", "/showmessages", "/showsendmessage"})
 @MultipartConfig
 public class controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -56,6 +56,7 @@ public class controller extends HttpServlet {
 		dictionary.put("/removefromcart", new RemoveFromCartHandler());
 		dictionary.put("/sendmessage", new SendMessage());
 		dictionary.put("/showmessages", new ShowMessages());
+		dictionary.put("/showsendmessage", new ShowSendMessageHandler());
 	}
 
 	/**

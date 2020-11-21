@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="g16.model.*" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -78,11 +80,13 @@
 	
 	<section class="order_details section_gap"></section>
 
+	<% String sellerEmail = ""; %>
+	<% if(session.getAttribute("emailSeller") != null) sellerEmail = (String)session.getAttribute("emailSeller");%>
 	<FORM name="nombre" method="POST" action="sendmessage">
 		<font color="green" size="16px" ><B>&emsp;CHAT DE MENSAJES</B> </FONT>
 		
 		<br> <BR> <B>&emsp;&emsp;&emsp;Email del usuario de destino</B>: <BR><BR>&emsp;&emsp;&emsp;<INPUT type="text" name="emailDestino"
-			size="60"> <br> <BR> 
+			size="60" value="<% out.print(sellerEmail); %>"> <br> <BR> 
 		
 		<br><B>&emsp;&emsp;&emsp;Mensaje que desea enviar</B>: <BR><BR>&emsp;&emsp;&emsp;<textarea name="mensaje"
 			rows="8" cols="60"></textarea> <br> <BR>
