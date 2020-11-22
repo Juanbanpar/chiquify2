@@ -57,7 +57,8 @@
 				                if(session.getAttribute("email") != null)
 				                {
 				            %>
-				                 <li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
+								<li class="nav-item"><a class="nav-link" href="chat.jsp">Chat</a></li>
+				                <li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
 				            <%
 				                }
 				            %>

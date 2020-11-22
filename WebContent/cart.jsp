@@ -56,7 +56,8 @@
 				                if(session.getAttribute("email") != null)
 				                {
 				            %>
-				                 <li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
+								<li class="nav-item"><a class="nav-link" href="chat.jsp">Chat</a></li>
+				                <li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
 				            <%
 				                }
 				            %>
@@ -67,7 +68,7 @@
 				                if(session.getAttribute("cart") != null)
 				                {
 				            %>
-							<li class="nav-item active"><a href="cart.jsp" class="cart"><span class="ti-bag"></span></a></li>
+							<li class="nav-item"><a href="cart.jsp" class="cart"><span class="ti-bag"></span></a></li>
 							<%
 				                }
 				            %>
