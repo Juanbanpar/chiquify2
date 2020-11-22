@@ -133,7 +133,7 @@
 	                                	<form class="row login_form" METHOD=POST ACTION="changeqty">
 		                                    <div class="product_count">
 		                                    	<input type="hidden" name="IndexCart" value = <% out.print(i); %> readonly>
-		                                        <input type="text" name="qty" id="sst" maxlength="12" value=<% out.print("'" + cart.get(i).getQuantity() + "'"); %> title="Quantity:"
+		                                        <input type="number" min="0" name="qty" id="sst" maxlength="12" value=<% out.print("'" + cart.get(i).getQuantity() + "'"); %> title="Quantity:"
 		                                            class="input-text qty">
 												<div class="col-md-12 form-group">
 													<button type="submit" value="submit" class="primary-btn">Set</button>
@@ -182,12 +182,16 @@
                                 <td>
 
                                 </td>
-                                <td>
-                                    <div class="checkout_btn_inner d-flex align-items-center">
-                                        <a class="gray_btn" href="index.jsp">Continue Shopping</a>
-                                        <a class="primary-btn" href="#">Proceed to checkout</a>
-                                    </div>
-                                </td>
+                                <% if(session.getAttribute("email") != null) { %>
+	                                <td>
+	                                    <div class="checkout_btn_inner d-flex align-items-center">
+	                                        <a class="gray_btn" href="index.jsp">Continue Shopping</a>
+	                                        <a class="primary-btn" href="#">Proceed to checkout</a>
+	                                    </div>
+	                                </td>
+                                <% }else{ %>
+									<p style="color: red; font-weight: 800;">Please login to proceed to checkout</p>
+								<% }%>
                             </tr>
                         </tbody>
                     </table>

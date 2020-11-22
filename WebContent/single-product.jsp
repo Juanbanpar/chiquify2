@@ -123,15 +123,20 @@
 			                            <button type="submit" value="submit" class="primary-btn">Add to cart</button>
 			                        </div>
 								</div>
-							<% } %>
-						</form>
+							<% }%>
+							</form>
+						<% if(session.getAttribute("email") != null) { %>
 						<form METHOD=POST ACTION="showsendmessage">
 							<input type="hidden" name="emailSeller" value = <% out.print((String)product.getVendedor().getEmail()); %> readonly>
 							<div class="col-md-12 form-group">
 		                            <button type="submit" value="submit" class="primary-btn">Send message to seller</button>
 		                    </div>
 						</form>
+						<% } %>
 					</div>
+					<% if(session.getAttribute("email") == null) { %>
+						<p style="color: red; font-weight: 800;">Please login to message the seller</p>
+					<% }%>
 				</div>
 			</div>
 		</div>
