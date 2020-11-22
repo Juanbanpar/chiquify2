@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="g16.model.*" import="java.util.List" %> 
+    pageEncoding="ISO-8859-1" import="g16.model.*" import="java.util.List" import="java.util.ArrayList" %> 
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -96,55 +96,50 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-3 col-lg-4 col-md-5">
-					<div class="sidebar-categories">
-						<% ProductManager pm = new ProductManager(); %>
-			        	<% String cadena = (String) session.getAttribute("cadena"); %>
-	                    <% List <List<Producto>> productosCategoria = pm.getAllProductsbyCategory(cadena); %>
-	                    <% int [] categoria = new int [8]; %>
-	                    <% for(int i = 0; i < 8; i++) { %>
-	                    	<% if(productosCategoria == null) {
-	                    		categoria[i] = 0;
-	                    	} else if (productosCategoria.get(i) == null) {
-	                    		categoria[i] = 0;
-	                    	} else {
-	                    		categoria[i] = productosCategoria.get(i).size(); } %>
-                    	<% } %>
-						<div class="head">Categorias</div>
-						<ul class="main-categories">
-							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Abrigo<span class="number">(<% out.print(categoria[0]); %>)</span></a>
-							</li>
-							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Pantalon<span class="number">(<% out.print(categoria[1]); %>)</span></a>
-							</li>
-							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Zapato<span class="number">(<% out.print(categoria[2]); %>)</span></a>
-							</li>
-							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Vestido<span class="number">(<% out.print(categoria[3]); %>)</span></a>
-							</li>
-							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Camiseta<span class="number">(<% out.print(categoria[4]); %>)</span></a>
-							</li>
-							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Chandal<span class="number">(<% out.print(categoria[5]); %>)</span></a>
-							</li>
-							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Bolso<span class="number">(<% out.print(categoria[6]); %>)</span></a>
-							</li>
-							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Accesorio<span class="number">(<% out.print(categoria[7]); %>)</span></a>
-							</li>
-						</ul>
+				<div class="sidebar-categories">
+					<% ProductManager pm = new ProductManager(); %>
+		        	<% String cadena = (String) session.getAttribute("cadena"); %>
+                    <% List <List<Producto>> productosCategoria = pm.getAllProductsbyCategory(cadena); %>
+                    <% int [] categoria = new int [8]; %>
+                    <% for(int i = 0; i < 8; i++) { %>
+                    	<% if(productosCategoria == null) {
+                    		categoria[i] = 0;
+                    	} else if (productosCategoria.get(i) == null) {
+                    		categoria[i] = 0;
+                    	} else {
+                    		categoria[i] = productosCategoria.get(i).size(); } %>
+                   	<% } %>
+					<div class="head">Categorias</div>
+						<form METHOD=GET ACTION="complexsearch">
+							<div class="input-group dropdown" style="width: 100%">
+			                    <span class="input-group-addon" id="basic-addon1"><span
+			                        class="glyphicon glyphicon-tasks" aria-hidden="true"></span></span>
+			                     <select name="category">
+			                        <option value="Abrigo">Abrigo(<% out.print(categoria[0]); %>)</option>
+			                        <option value="Pantalon">Pantalon(<% out.print(categoria[1]); %>)</option>
+			                        <option value="Zapato">Zapato(<% out.print(categoria[2]); %>)</option>
+			                        <option value="Vestido">Vestido(<% out.print(categoria[3]); %>)</option>
+			                        <option value="Camiseta">Camiseta(<% out.print(categoria[4]); %>)</option>
+			                        <option value="Chandal">Chandal(<% out.print(categoria[5]); %>)</option>
+			                        <option value="Bolso">Bolso(<% out.print(categoria[6]); %>)</option>
+			                        <option value="Accesorio">Accesorio(<% out.print(categoria[7]); %>)</option>
+			                    </select>
+			                </div>
+							<button type="submit" value="submit" class="primary-btn">Aplicar filtro</button>
+						</form>
 					</div>
 			</div>
 			<div class="col-xl-9 col-lg-8 col-md-7">
 
 				<!-- Start Best Seller -->
 				<section class="lattest-product-area pb-40 category-list">
+					<h3>Results for your search: <% out.print("'" + cadena + "'"); %></h3>
 					<div class="row">
-			        <h3>Results for your search: <% out.print("'" + cadena + "'"); %></h3>
-                    <% List <Producto> productos = pm.getAllProductsbyString(cadena); %>
+                    <% ArrayList<String> categories = new ArrayList<String>(); 
+                    categories.add("Abrigo"); categories.add("Pantalon"); categories.add("Zapato"); categories.add("Vestido"); categories.add("Camiseta"); categories.add("Chandal"); categories.add("Bolso"); categories.add("Accesorio");
+                    List <Producto> productos;
+                    if(session.getAttribute("category")==null) productos= pm.getAllProductsbyString(cadena); 
+                    else productos= productosCategoria.get(categories.indexOf(session.getAttribute("category"))); %>
                     <% for(int i = 0; i < productos.size(); i++){ %>
 						<!-- single product -->
 						<div class="col-lg-4 col-md-6">

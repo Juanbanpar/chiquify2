@@ -13,15 +13,14 @@ import com.oracle.wls.shaded.org.apache.xalan.transformer.ResultNameSpace;
 
 import g16.model.*;
 
-public class SearchHandler implements RequestHandler{
+public class ComplexSearchHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
-		String cadena = request.getParameter("cadena");
+		String category = request.getParameter("category");
 		
 		HttpSession session = request.getSession(true);
-		session.setAttribute("cadena", cadena);
-		session.setAttribute("category", null);
+		session.setAttribute("category", category);
 		
 		return "category.jsp";
 	}
