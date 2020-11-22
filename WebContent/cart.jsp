@@ -182,16 +182,36 @@
                                 <td>
 
                                 </td>
+
                                 <% if(session.getAttribute("email") != null) { %>
 	                                <td>
 	                                    <div class="checkout_btn_inner d-flex align-items-center">
 	                                        <a class="gray_btn" href="index.jsp">Continue Shopping</a>
-	                                        <a class="primary-btn" href="#">Proceed to checkout</a>
 	                                    </div>
 	                                </td>
                                 <% }else{ %>
 									<p style="color: red; font-weight: 800;">Please login to proceed to checkout</p>
 								<% }%>
+
+                                <td>
+                                    <div class="checkout_btn_inner d-flex align-items-center">
+                                        <a class="gray_btn" href="index.jsp">Continue Shopping</a>
+                                        
+                                        
+                                        <FORM name="nombre" method="POST" action="sendconfirmation">
+                                        	<B>&emsp;&emsp;&emsp;Tarjeta de pago</B>: <BR><BR>&emsp;&emsp;&emsp;
+                                        	<INPUT type="text" name="tarjeta" size="60" required> <br> <BR>
+											<br> <BR> &emsp;&emsp;&emsp;<INPUT class="primary-btn" type="submit" name="ejecutar3"
+											value="Proceed to checkout"><BR><BR>
+										</FORM>
+                                        
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td>
+
                             </tr>
                         </tbody>
                     </table>
