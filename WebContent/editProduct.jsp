@@ -145,7 +145,7 @@
 								<input type="file" class="form-control" id="name" name="imagen" accept="image/jpg" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Imagen'">
 							</div>
                             <div class="col-md-12 form-group">
-								<input type='number' step='1' value=<%out.print("'" + product.getPrecio() + "'"); %> placeholder='0' name="precio" pattern="^\d*(\.\d{0,2})?$" placeholder="Precio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Precio'">euros
+								<input type='number' min="0" step='1' value=<%out.print("'" + product.getPrecio() + "'"); %> placeholder='0' name="precio" pattern="^\d*(\.\d{0,2})?$" placeholder="Precio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Precio'">euros
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="primary-btn">Modify product</button>

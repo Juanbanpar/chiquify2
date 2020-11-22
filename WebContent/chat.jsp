@@ -108,12 +108,12 @@
 			rows="8" cols="60"></textarea> <br> <BR>
 			
 		 <br> <BR> &emsp;&emsp;&emsp;<INPUT class="primary-btn" type="submit" name="ejecutar1"
-			value="ESCRIBIR MENSAJE EN LA COLA">
+			value="ENVIAR">
 	</FORM>
 	
 	<FORM name="nombre" method="POST" action="showmessages">
 		<br> <BR> &emsp;&emsp;&emsp;<INPUT class="primary-btn" type="submit" name="ejecutar2"
-			value="LEER MIS MENSAJES DE LA COLA"><BR><BR>
+			value="LEER MIS MENSAJES"><BR><BR>
 	</FORM>
 
 

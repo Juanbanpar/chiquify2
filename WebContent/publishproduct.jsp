@@ -133,7 +133,7 @@
 								<input type="text" class="form-control" id="name" name="descripcion" placeholder="Descripcion" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Descripcion³n'" required>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type='number' step='1' value='0' placeholder='0' name="precio" pattern="^\d*(\.\d{0,2})?$" placeholder="Precio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Precio'">euros
+								<input type='number' min="0" step='1' value='0' placeholder='0' name="precio" pattern="^\d*(\.\d{0,2})?$" placeholder="Precio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Precio'">euros
 							</div>
 
 							<div class="col-md-12 form-group">

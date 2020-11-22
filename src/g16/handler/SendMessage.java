@@ -83,6 +83,6 @@ public class SendMessage implements RequestHandler{
 							+ e.getMessage());
 		}
 
-		return "chat.html";
+		return "chat.jsp";
 	}
 }
