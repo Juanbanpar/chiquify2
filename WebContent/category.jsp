@@ -99,33 +99,41 @@
 					<div class="sidebar-categories">
 						<% ProductManager pm = new ProductManager(); %>
 			        	<% String cadena = (String) session.getAttribute("cadena"); %>
-	                    <% List <List<Producto>> productosCategoria = null ; %>
-	                    <% productosCategoria = pm.getAllProductsbyCategory(cadena); %>	
+	                    <% List <List<Producto>> productosCategoria = pm.getAllProductsbyCategory(cadena); %>
+	                    <% int [] categoria = new int [8]; %>
+	                    <% for(int i = 0; i < 8; i++) { %>
+	                    	<% if(productosCategoria == null) {
+	                    		categoria[i] = 0;
+	                    	} else if (productosCategoria.get(i) == null) {
+	                    		categoria[i] = 0;
+	                    	} else {
+	                    		categoria[i] = productosCategoria.get(i).size(); } %>
+                    	<% } %>
 						<div class="head">Categorias</div>
 						<ul class="main-categories">
 							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Abrigo<span class="number">(<% out.print(productosCategoria.get(0).size()); %>)</span></a>
+									 class="lnr lnr-arrow-right"></span>Abrigo<span class="number">(<% out.print(categoria[0]); %>)</span></a>
 							</li>
 							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Pantalon<span class="number">(<% out.print(productosCategoria.get(1).size()); %>)</span></a>
+									 class="lnr lnr-arrow-right"></span>Pantalon<span class="number">(<% out.print(categoria[1]); %>)</span></a>
 							</li>
 							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Zapato<span class="number">(<% out.print(productosCategoria.get(2).size()); %>)</span></a>
+									 class="lnr lnr-arrow-right"></span>Zapato<span class="number">(<% out.print(categoria[2]); %>)</span></a>
 							</li>
 							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Vestido<span class="number">(<% out.print(productosCategoria.get(3).size()); %>)</span></a>
+									 class="lnr lnr-arrow-right"></span>Vestido<span class="number">(<% out.print(categoria[3]); %>)</span></a>
 							</li>
 							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Camiseta<span class="number">(<% out.print(productosCategoria.get(4).size()); %>)</span></a>
+									 class="lnr lnr-arrow-right"></span>Camiseta<span class="number">(<% out.print(categoria[4]); %>)</span></a>
 							</li>
 							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Chandal<span class="number">(<% out.print(productosCategoria.get(5).size()); %>)</span></a>
+									 class="lnr lnr-arrow-right"></span>Chandal<span class="number">(<% out.print(categoria[5]); %>)</span></a>
 							</li>
 							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Bolso<span class="number">(<% out.print(productosCategoria.get(6).size()); %>)</span></a>
+									 class="lnr lnr-arrow-right"></span>Bolso<span class="number">(<% out.print(categoria[6]); %>)</span></a>
 							</li>
 							<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false"><span
-									 class="lnr lnr-arrow-right"></span>Accesorio<span class="number">(<% out.print(productosCategoria.get(7).size()); %>)</span></a>
+									 class="lnr lnr-arrow-right"></span>Accesorio<span class="number">(<% out.print(categoria[7]); %>)</span></a>
 							</li>
 						</ul>
 					</div>
