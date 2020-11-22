@@ -116,19 +116,13 @@
 							<div class="col-md-12 form-group">
 								<select name="categoria" id="cars">
 	    							<option value="abrigo">Abrigo</option>
-	    							<option value="jersey">Jersey</option>
-	    							<option value="sudadera">Sudadera</option>
-	    							<option value="pantalon">Pantalón</option>
+	    							<option value="pantalon">Pantalon</option>
 	    							<option value="zapato">Zapato</option>
 	    							<option value="vestido">Vestido</option>
-	    							<option value="falda">Falda</option>
 	    							<option value="camiseta">Camiseta</option>
-	    							<option value="banhador">Bañador</option>
 	    							<option value="chandal">Chandal</option>
 	    							<option value="bolso">Bolso</option>
 	    							<option value="accesorio">Accesorio</option>
-	    							<option value="bufanda">Bufanda</option>
-	    							<option value="corbata">Corbata</option>
 	  							</select>
 							</div>
 							<div class="col-md-12 form-group">
