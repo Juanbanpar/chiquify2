@@ -115,11 +115,14 @@
 								<li><a href="#"><span>Seller</span> : <% out.print((String)product.getVendedor().getEmail()); %></a></li>
 							</ul>
 							<p><% out.print((String)product.getDescripcion()); %></p>
-							<div class="card_area d-flex align-items-center">
-		                        <div class="col-md-12 form-group">
-		                            <button type="submit" value="submit" class="primary-btn">Add to cart</button>
-		                        </div>
-							</div>
+							
+							<% if(product.getEstado().equals("Disponible")) { %>
+								<div class="card_area d-flex align-items-center">
+			                        <div class="col-md-12 form-group">
+			                            <button type="submit" value="submit" class="primary-btn">Add to cart</button>
+			                        </div>
+								</div>
+							<% } %>
 						</form>
 						<form METHOD=POST ACTION="showsendmessage">
 							<input type="hidden" name="emailSeller" value = <% out.print((String)product.getVendedor().getEmail()); %> readonly>
