@@ -29,6 +29,46 @@ public class ProductManager {
 		return productos;
 	}
 	
+	public List<List<Producto>> getAllProductsbyCategory(String cadena){
+		List <List<Producto>> productos = null;
+		
+		EntityManager em = emf.createEntityManager();
+				
+		Query q = em.createQuery("Select p from Producto p WHERE (p.titulo LIKE '%" + cadena + "%' OR p.descripcion LIKE '%" + cadena + "%') AND p.categoria = 'Abrigo'");
+		
+		productos.add(q.getResultList());
+		
+		q = em.createQuery("Select p from Producto p WHERE (p.titulo LIKE '%" + cadena + "%' OR p.descripcion LIKE '%" + cadena + "%') AND p.categoria = 'Pantalon'");
+		
+		productos.add(q.getResultList());
+		
+		q = em.createQuery("Select p from Producto p WHERE (p.titulo LIKE '%" + cadena + "%' OR p.descripcion LIKE '%" + cadena + "%') AND p.categoria = 'Zapato'");
+		
+		productos.add(q.getResultList());
+		
+		q = em.createQuery("Select p from Producto p WHERE (p.titulo LIKE '%" + cadena + "%' OR p.descripcion LIKE '%" + cadena + "%') AND p.categoria = 'Vestido'");
+		
+		productos.add(q.getResultList());
+		
+		q = em.createQuery("Select p from Producto p WHERE (p.titulo LIKE '%" + cadena + "%' OR p.descripcion LIKE '%" + cadena + "%') AND p.categoria = 'Camiseta'");
+		
+		productos.add(q.getResultList());
+		
+		q = em.createQuery("Select p from Producto p WHERE (p.titulo LIKE '%" + cadena + "%' OR p.descripcion LIKE '%" + cadena + "%') AND p.categoria = 'Chandal'");
+		
+		productos.add(q.getResultList());
+		
+		q = em.createQuery("Select p from Producto p WHERE (p.titulo LIKE '%" + cadena + "%' OR p.descripcion LIKE '%" + cadena + "%') AND p.categoria = 'Bolso'");
+		
+		productos.add(q.getResultList());
+		
+		q = em.createQuery("Select p from Producto p WHERE (p.titulo LIKE '%" + cadena + "%' OR p.descripcion LIKE '%" + cadena + "%') AND p.categoria = 'Accesorio'");
+		
+		productos.add(q.getResultList());
+		
+		return productos;
+	}
+	
 	public List<Producto> getAllProductsbyUser(Usuario user){
 		List<Producto> productos = null;
 		

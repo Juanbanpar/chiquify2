@@ -93,62 +93,12 @@
 	</header>
 	<!-- End Header Area -->
 
-	<section class="order_details section_gap"></section>
-
-	<!-- start features Area -->
-	<section class="features-area section_gap">
-		<div class="container">
-			<div class="row features-inner">
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="img/features/f-icon1.png" alt="">
-						</div>
-						<h6>Free Delivery</h6>
-						<p>Free Shipping on all order</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="img/features/f-icon2.png" alt="">
-						</div>
-						<h6>Return Policy</h6>
-						<p>Free Shipping on all order</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="img/features/f-icon3.png" alt="">
-						</div>
-						<h6>24/7 Support</h6>
-						<p>Free Shipping on all order</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="img/features/f-icon4.png" alt="">
-						</div>
-						<h6>Secure Payment</h6>
-						<p>Free Shipping on all order</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- end features Area -->
-
 	<!-- start product Area -->
 	<section class="active-product-area section_gap">
-        <h3>Results for your search</h3>
-        <% ProductManager pm = new ProductManager(); %>
+		<% ProductManager pm = new ProductManager(); %>
         <% String cadena = (String) session.getAttribute("cadena"); %>
+        <h3>Results for your search: <% out.print("'" + cadena + "'"); %></h3>
+        
         <% List <Producto> productos = pm.getAllProductsbyString(cadena); %>
         <% for(int i = 0; i < productos.size(); i++){ %>
             <form class="row login_form" METHOD=POST ACTION="viewproduct">

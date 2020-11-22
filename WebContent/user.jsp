@@ -52,11 +52,11 @@
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
 							<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
-							<li class="nav-item"><a class="nav-link" href="chat.jsp">Chat</a></li>
 							<%
 				                if(session.getAttribute("email") != null)
 				                {
 				            %>
+								<li class="nav-item"><a class="nav-link" href="chat.jsp">Chat</a></li>
 				                 <li class="nav-item active"><a class="nav-link" href="user.jsp">Profile</a></li>
 				            <%
 				                }

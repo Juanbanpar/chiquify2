@@ -58,7 +58,8 @@
 				                if(session.getAttribute("email") != null)
 				                {
 				            %>
-				                 <li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
+								<li class="nav-item"><a class="nav-link" href="chat.jsp">Chat</a></li>
+				                <li class="nav-item"><a class="nav-link" href="user.jsp">Profile</a></li>
 				            <%
 				                }
 				            %>
@@ -145,17 +146,14 @@
 	<!-- end features Area -->
 
 	<!-- start product Area -->
-	<section class="owl-carousel active-product-area section_gap">
+	<section class="active-product-area section_gap">
 		<!-- single product slide -->
-		<div class="single-product-slider">
+		<div class="single-product">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-lg-6 text-center">
 						<div class="section-title">
-							<h1>Latest Products</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore
-								magna aliqua.</p>
+							<h1>Nuestros Productos</h1>
 						</div>
 					</div>
 				</div>
@@ -427,7 +425,7 @@
 			</div>
 		</div>
 		<!-- single product slide -->
-		<div class="single-product-slider">
+		<div class="single-product">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-lg-6 text-center">
