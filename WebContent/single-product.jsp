@@ -117,7 +117,7 @@
 							</ul>
 							<p><% out.print((String)product.getDescripcion()); %></p>
 							
-							<% if(product.getEstado().equals("Disponible")) { %>
+							<% if(product.getEstado().equals("Disponible") && !product.getVendedor().getEmail().equals(session.getAttribute("email"))) { %>
 								<div class="card_area d-flex align-items-center">
 			                        <div class="col-md-12 form-group">
 			                            <button type="submit" value="submit" class="primary-btn">Add to cart</button>
