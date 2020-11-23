@@ -16,6 +16,9 @@ import g16.model.*;
 public class ComplexSearchHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler obtiene la categoría de la búsqueda avanzada y la guarda en sesión
+		 */
 		
 		String category = request.getParameter("category");
 		

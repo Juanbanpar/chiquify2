@@ -14,7 +14,9 @@ public class RegisterHandler implements RequestHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		/*
+		 * Este handler permite crear un usuario en el sistema de acuerdo a los datos introducidos en el formulario
+		 */
 		
 		String name = request.getParameter("name");
 		String lastname1 = request.getParameter("lastname1");

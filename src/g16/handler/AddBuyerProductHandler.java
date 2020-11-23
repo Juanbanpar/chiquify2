@@ -14,6 +14,9 @@ import g16.model.*;
 public class AddBuyerProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler añade al usuario de la sesión como comprador de un producto
+		 */
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		

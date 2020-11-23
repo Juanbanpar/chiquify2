@@ -17,6 +17,10 @@ import g16.model.*;
 public class ChangeQtyHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler nos permite modificar la cantidad de elementos a comprar de un producto en el carrito
+		 */
+		
 		HttpSession session = request.getSession();
 		int indexCart = Integer.parseInt(request.getParameter("IndexCart"));
 		int qty = Integer.parseInt(request.getParameter("qty"));

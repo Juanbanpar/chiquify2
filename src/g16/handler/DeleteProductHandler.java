@@ -14,6 +14,9 @@ import g16.model.*;
 public class DeleteProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler sirve para dar de baja un producto del sistema
+		 */
 		
 		//int id = Integer.parseInt(request.getParameter("id"));
 		HttpSession session = request.getSession(true);

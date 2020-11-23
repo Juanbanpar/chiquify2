@@ -18,7 +18,10 @@ import g16.model.*;
 public class PublishProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		/*
+		 * Este handler permite publicar un producto de acuerdo a los atributos que se le han asignado,
+		 * dicho producto tiene un vendedor asociado, que es el usuario de la sesión.
+		 */
 		
 		String categoria = request.getParameter("categoria");
 		String descripcion = request.getParameter("descripcion");

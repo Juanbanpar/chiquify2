@@ -39,8 +39,12 @@ public class SendConfirmation implements RequestHandler{
 	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler permite mandar la confirmación de compra de un producto
+		 */
 		
 		try {
+			//Obtenemos los datos de la compra y el comrpador
 			HttpSession session = request.getSession(true);
 			String emailOrigen = (String) session.getAttribute("email");
 			List<Item> listaItems = (List<Item>)session.getAttribute("cart");
@@ -59,19 +63,19 @@ public class SendConfirmation implements RequestHandler{
 				if(!ConfirmacionVendedor.isEmpty()) {
 					for(int j=0; j<ConfirmacionVendedor.size(); j++) {
 						if(ConfirmacionVendedor.get(j).getVendedor()==vendedor) {
-							//adding to total cost
+							//Añadimos al coste total
 							double PrecioPorVendedor=ConfirmacionVendedor.get(j).getCantidad(); 
 							PrecioPorVendedor+=listaItems.get(i).getQuantity();
 							ConfirmacionVendedor.get(j).setCantidad(PrecioPorVendedor);
 							
-							//adding products
+							//Añadimos los productos
 							isVendedor=true;
 							ConfirmacionVendedor.get(j).getProductos().add(listaItems.get(i));
 							
 						}
 					}
 				}
-				//if vendedor not in previous list, add him
+				//Si el vendedor no se encontraba en la lista anterior se le añade
 				if(isVendedor == false) {
 					double precio=listaItems.get(i).getProduct().getPrecio()*listaItems.get(i).getQuantity();
 					int x=(int) Math.random()*20000;

@@ -18,6 +18,11 @@ import g16.model.*;
 public class ModifyProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler sirve para modificar un producto del sistema, se obtienen sus nuevos atributos
+		 * y se aplican.
+		 */
+		
 		HttpSession session = request.getSession(true);
 		
 		//int id = Integer.parseInt(request.getParameter("id"));

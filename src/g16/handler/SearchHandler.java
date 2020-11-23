@@ -16,6 +16,9 @@ import g16.model.*;
 public class SearchHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler obtiene la cadena de búsqueda para obtener resultados en título y descripción de los productos
+		 */
 		
 		String cadena = request.getParameter("cadena");
 		

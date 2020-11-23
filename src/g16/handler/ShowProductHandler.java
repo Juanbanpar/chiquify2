@@ -14,7 +14,10 @@ import g16.model.*;
 public class ShowProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-	
+		/*
+		 * Este handler obtiene el id del producto a mostrar
+		 */
+		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("idtoShow", request.getParameter("Id"));
 		

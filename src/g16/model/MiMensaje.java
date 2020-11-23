@@ -4,9 +4,10 @@ import java.io.Serializable;
 
 public class MiMensaje implements Serializable{
 
-    /**
-     * 
+	/*
+     * Esta clase contiene el constructor de un mensaje dentro del sistema
      */
+	
     private static final long serialVersionUID = 1L;
     private String senderId;
     private String receiverId;

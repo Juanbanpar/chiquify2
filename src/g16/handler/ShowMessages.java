@@ -58,6 +58,9 @@ public class ShowMessages implements RequestHandler{
 	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler permite leer mensajes de la cola del sistema que recibe el usuario de la sesión
+		 */
 		
 		HttpSession session;
 		List<MiMensaje> contenido;

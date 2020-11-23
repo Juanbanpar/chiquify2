@@ -10,6 +10,11 @@ import javax.persistence.Query;
 
 public class AccountManager {
 
+	/*
+	 * Esbozo de una implementación con JPA de los usuarios, se decidió abandonarla con el 
+	 * fin de cumplir con los requisitos de la práctica
+	 */
+	
 	private EntityManagerFactory emf;
 
 	public AccountManager() {

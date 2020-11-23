@@ -15,7 +15,9 @@ public class LoginHandler implements RequestHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		/*
+		 * Este handler permite al usuario logearse en el sisema y crear una sesión
+		 */
 		
 		String email = request.getParameter("email");
 		String passwd = request.getParameter("password");

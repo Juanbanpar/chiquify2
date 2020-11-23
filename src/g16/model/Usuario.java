@@ -6,8 +6,8 @@ import java.util.List;
 
 
 /**
- * The persistent class for the usuario database table.
- * 
+ * A pesar de contener elementos de JPA la clase usuario emplea puramente JDBC para tratar los datos,
+ * se crearon ambas soluciones con el fin de demostrar la posibilidad de emplear cualquiera de los dos.
  */
 @Entity
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")

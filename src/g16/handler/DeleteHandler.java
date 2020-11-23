@@ -15,7 +15,9 @@ import g16.model.Usuario;
 public class DeleteHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		/*
+		 * Este handler sirve para dar de baja a un usuario del sistema
+		 */
 		
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("email");

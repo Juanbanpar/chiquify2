@@ -17,6 +17,10 @@ import g16.model.*;
 public class RemoveFromCartHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler permite eliminar un elemento de la lista de la compra
+		 */
+		
 		HttpSession session = request.getSession();
 		int indexCart = Integer.parseInt(request.getParameter("IndexCart"));
 		

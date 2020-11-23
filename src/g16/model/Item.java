@@ -5,6 +5,10 @@ public class Item {
 	private Producto product;
 	private int quantity;
 
+	/*
+	 * Esta clase contiene el constructor de un item del carrito, es decir, un producto con su cantidad
+	 */
+	
 	public Item() {
 	}
 

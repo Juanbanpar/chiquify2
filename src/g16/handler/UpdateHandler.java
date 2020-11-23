@@ -14,7 +14,9 @@ import g16.model.*;
 public class UpdateHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		/*
+		 * Este handler permite actualizar los datos de usuario
+		 */
 		
 		String name = request.getParameter("name");
 		String lastname1 = request.getParameter("lastname1");

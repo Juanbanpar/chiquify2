@@ -36,6 +36,9 @@ public class SendMessage implements RequestHandler{
 	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler permite enviar mensajes entre usuarios
+		 */
 		
 		try {
 			

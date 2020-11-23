@@ -18,7 +18,10 @@ public class AddtoCartHandler implements RequestHandler{
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-	
+		/*
+		 * Este handler añade (y si es necesario crea) al carrito de la compra
+		 */
+		
 		//Producto productModel = new Producto();
 		
 		HttpSession session = request.getSession();
@@ -26,12 +29,14 @@ public class AddtoCartHandler implements RequestHandler{
 		
 		ProductManager pm = new ProductManager();
 		
+		//Si no existe un carrito se crea
 		if (session.getAttribute("cart") == null) {
 			
 			List<Item> cart = new ArrayList<Item>();
 			cart.add(new Item(pm.getProduct(id), 1));
 			session.setAttribute("cart", cart);
-			
+		
+		//Añadimos un producto con su cantidad a la lista de la compra
 		} else {
 			
 			List<Item> cart = (List<Item>) session.getAttribute("cart");

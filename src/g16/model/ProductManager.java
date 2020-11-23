@@ -11,6 +11,10 @@ import javax.persistence.Query;
 
 public class ProductManager {
 	
+	/*
+	 * Esta clase contiene los métodos para manejar los productos en la base de datos con JPA
+	 */
+	
 	private EntityManagerFactory emf;
 
 	public ProductManager() {

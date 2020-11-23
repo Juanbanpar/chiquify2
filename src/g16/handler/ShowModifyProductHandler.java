@@ -14,6 +14,9 @@ import g16.model.*;
 public class ShowModifyProductHandler implements RequestHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		/*
+		 * Este handler obtiene el id del producto a editar y muestra la página de edición
+		 */
 		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("idtoEdit", request.getParameter("Id"));

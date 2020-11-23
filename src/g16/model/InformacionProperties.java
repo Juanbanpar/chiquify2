@@ -4,6 +4,10 @@ import java.util.*;
 
 public class InformacionProperties {
 
+	/*
+	 * Esta clase tiene las propiedades de JMS
+	 */
+	
 	private static String strQCF;
 
 	private static String strQueue;
