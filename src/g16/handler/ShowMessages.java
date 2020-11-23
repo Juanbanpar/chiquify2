@@ -121,6 +121,6 @@ public class ShowMessages implements RequestHandler{
 							+ e.getMessage());
 		}
 
-		return "mensajesLeidos.jsp"; //chat.jsp? necesitamos un jsp
+		return "mensajesLeidos.jsp";
 	}
 }
