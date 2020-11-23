@@ -125,7 +125,7 @@
 							</div>
                             <div class="col-md-12 form-group">
 	                            <%
-					                if(session.getAttribute("name") == "taken")
+					                if(session.getAttribute("aux") == "taken" && session.getAttribute("email") == null)
 					                {
 					            %>
 									<p style="color: red; font-weight: 800;">Email already registered</p>

@@ -41,7 +41,6 @@ public class SendConfirmation implements RequestHandler{
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
 		try {
-			System.out.println("stop 1");
 			HttpSession session = request.getSession(true);
 			String emailOrigen = (String) session.getAttribute("email");
 			List<Item> listaItems = (List<Item>)session.getAttribute("cart");
@@ -51,31 +50,19 @@ public class SendConfirmation implements RequestHandler{
 			
 			ProductManager pm = new ProductManager();
 			
-			System.out.println("stop 2");
-			
 			List<ConfirmacionCompra> ConfirmacionVendedor = new ArrayList<ConfirmacionCompra>();
 			String tarjeta = (String) request.getParameter("tarjeta");
-			if(tarjeta == null) {System.out.println("tarjeta null");}
-
-			System.out.println("stop 3");
-			System.out.println(listaItems.size());
 			
 			for(int i=0; i<listaItems.size(); i++) {
-				System.out.println("stop 4");
 				String vendedor=listaItems.get(i).getProduct().getVendedor().getEmail();
 				boolean isVendedor = false;
-				System.out.println("stop 5");
 				if(!ConfirmacionVendedor.isEmpty()) {
 					for(int j=0; j<ConfirmacionVendedor.size(); j++) {
-						System.out.println("stop 6");
 						if(ConfirmacionVendedor.get(j).getVendedor()==vendedor) {
 							//adding to total cost
 							double PrecioPorVendedor=ConfirmacionVendedor.get(j).getCantidad(); 
 							PrecioPorVendedor+=listaItems.get(i).getQuantity();
-							System.out.println("stop 7");
 							ConfirmacionVendedor.get(j).setCantidad(PrecioPorVendedor);
-	
-							System.out.println("stop 8");
 							
 							//adding products
 							isVendedor=true;
@@ -86,16 +73,12 @@ public class SendConfirmation implements RequestHandler{
 				}
 				//if vendedor not in previous list, add him
 				if(isVendedor == false) {
-					System.out.println("New seller");
 					double precio=listaItems.get(i).getProduct().getPrecio()*listaItems.get(i).getQuantity();
 					int x=(int) Math.random()*20000;
 					String id=String.valueOf(x);
-					System.out.println("CReating aux list");
 					List<Item> aux = new ArrayList<Item>();
-					System.out.println("Adding item to aux list");
 					aux.add(listaItems.get(i));
 					ConfirmacionVendedor.add(new ConfirmacionCompra(tarjeta,precio, aux, id ,vendedor));
-					System.out.println("check addition");
 				
 				}
 			}
@@ -144,10 +127,10 @@ public class SendConfirmation implements RequestHandler{
 
 		} catch (javax.jms.JMSException e) {
 			System.out
-					.println(".....JHC *************************************** Error de JMS: "
+					.println("JHC *************************************** Error de JMS: "
 							+ e.getLinkedException().getMessage());
 			System.out
-					.println(".....JHC *************************************** Error de JMS: "
+					.println("JHC *************************************** Error de JMS: "
 							+ e.getLinkedException().toString());
 		} catch (Exception e) {
 			System.out

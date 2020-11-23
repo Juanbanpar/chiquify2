@@ -36,7 +36,7 @@ public class RegisterHandler implements RequestHandler {
         HttpSession session = request.getSession(true);
         
         if(am.getUser(email) != null) {
-        	session.setAttribute("name", "taken");
+        	session.setAttribute("aux", "taken");
         	return "registration.jsp";
         }
         
@@ -50,6 +50,7 @@ public class RegisterHandler implements RequestHandler {
         session.setAttribute("apellido2", lastname2);
         session.setAttribute("ciudad", city);
         session.setAttribute("passwd", password);
+        session.setAttribute("aux", null);
 		
 		
 		return "index.jsp";
