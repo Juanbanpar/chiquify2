@@ -78,7 +78,7 @@ public class SendConfirmation implements RequestHandler{
 				//Si el vendedor no se encontraba en la lista anterior se le añade
 				if(isVendedor == false) {
 					double precio=listaItems.get(i).getProduct().getPrecio()*listaItems.get(i).getQuantity();
-					int x=(int) Math.random()*20000;
+					int x = (int) (Math.random()*20000);
 					String id=String.valueOf(x);
 					List<Item> aux = new ArrayList<Item>();
 					aux.add(listaItems.get(i));
