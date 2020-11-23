@@ -46,7 +46,7 @@ public class SendConfirmation implements RequestHandler{
 			List<Item> listaItems = (List<Item>)session.getAttribute("cart");
 		
 			DBHelper dbh = new DBHelper();
-			Usuario comprador = dbh.getUser(emailOrigen, (String)session.getAttribute("password"));
+			Usuario comprador = dbh.getUser(emailOrigen, (String)session.getAttribute("passwd"));
 			
 			ProductManager pm = new ProductManager();
 			

@@ -220,8 +220,8 @@ public class ProductManager {
 			
 			et.begin();
 			
-			p.setUsuario1(buyer);
 			p.setEstado("Vendido");
+			p.setUsuario1(buyer);
 					
 			et.commit();
 		}catch(Exception e) {
