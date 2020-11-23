@@ -124,6 +124,14 @@
 								<input type="text" class="form-control" id="name" name="city" placeholder="City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'"required>
 							</div>
                             <div class="col-md-12 form-group">
+	                            <%
+					                if(session.getAttribute("name") == "taken")
+					                {
+					            %>
+									<p style="color: red; font-weight: 800;">Email already registered</p>
+								<%
+					                }
+					            %>
 								<input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"required>
 							</div>
 							<div class="col-md-12 form-group">

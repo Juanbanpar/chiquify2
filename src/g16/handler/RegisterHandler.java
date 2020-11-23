@@ -6,6 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import g16.model.*;
 
@@ -30,9 +31,25 @@ public class RegisterHandler implements RequestHandler {
 		_usuario.setCiudad(city);
 		_usuario.setEmail(email);
         _usuario.setPasswd(password);
-		
+        
+        AccountManager am = new AccountManager();
+        HttpSession session = request.getSession(true);
+        
+        if(am.getUser(email) != null) {
+        	session.setAttribute("name", "taken");
+        	return "registration.jsp";
+        }
+        
 		DBHelper helper = new DBHelper();
 		helper.insert(_usuario);
+		
+		
+        session.setAttribute("email", email);
+        session.setAttribute("nombre", name);
+        session.setAttribute("apellido1", lastname1);
+        session.setAttribute("apellido2", lastname2);
+        session.setAttribute("ciudad", city);
+        session.setAttribute("passwd", password);
 		
 		
 		return "index.jsp";
